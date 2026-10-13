@@ -13,23 +13,31 @@ from route.timeline import router as timeline_router
 from route.trend import router as trend_router
 from route.question import router as question_router
 from route.summary import router as summary_router
+from route.api_router import router as api_research_router
 import model
 
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"Database table sync warning: {e}")
 
-Base.metadata.create_all(bind=engine)
-
-app = FastAPI(title="MediAssist AI")
-
+app = FastAPI(
+    title="MediAssist AI",
+    description="A Personalized Longitudinal Clinical Framework for Medication and Laboratory Analysis in Type 2 Diabetes Mellitus"
+)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000", "*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Research API endpoints
+app.include_router(api_research_router)
 
+# Core routes
 app.include_router(patient_router)
 app.include_router(medication_router)
 app.include_router(adherence_router)
@@ -39,6 +47,12 @@ app.include_router(timeline_router)
 app.include_router(trend_router)
 app.include_router(question_router)
 app.include_router(summary_router)
+
+
 @app.get("/")
 def root():
-    return {"message": "MediAssist AI API is running"}
+    return {
+        "message": "MediAssist AI API is running",
+        "scope": "Type 2 Diabetes Mellitus (T2DM) Research Framework",
+        "docs_url": "/docs"
+    }

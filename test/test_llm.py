@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# Ensure project root is in sys.path when running script directly
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from services.llm_service import generate_patient_summary
 
 

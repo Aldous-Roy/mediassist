@@ -1,0 +1,22 @@
+patient_id,encounter_id,encounter_date,age,gender,diagnosis,medication_name,medication_status,dosage,hba1c,fasting_glucose,postprandial_glucose,creatinine,egfr,ldl,triglycerides,proxy_refill_adherence_pct
+T2D-101,ENC-101-1,2023-01-15,58,Male,Type 2 Diabetes Mellitus,Metformin,Active,500mg BID,7.4,138,185,1.0,88,118,175,85
+T2D-101,ENC-101-2,2023-05-20,58,Male,Type 2 Diabetes Mellitus,Metformin,Dose Increased,1000mg BID,7.9,152,198,1.1,82,124,190,78
+T2D-101,ENC-101-3,2023-09-18,58,Male,Type 2 Diabetes Mellitus,Empagliflozin,Added,10mg Daily,8.3,168,215,1.2,74,130,210,68
+T2D-101,ENC-101-4,2024-02-10,59,Male,Type 2 Diabetes Mellitus,Empagliflozin,Active,10mg Daily,8.7,180,230,1.3,68,135,225,62
+T2D-102,ENC-102-1,2023-02-05,64,Female,Type 2 Diabetes Mellitus,Metformin,Active,1000mg BID,9.1,195,245,0.9,78,142,220,70
+T2D-102,ENC-102-2,2023-06-12,64,Female,Type 2 Diabetes Mellitus,Semaglutide,Added,0.25mg Weekly,8.4,165,205,0.9,76,128,195,82
+T2D-102,ENC-102-3,2023-10-14,64,Female,Type 2 Diabetes Mellitus,Semaglutide,Dose Increased,0.5mg Weekly,7.6,140,175,0.85,80,110,165,92
+T2D-102,ENC-102-4,2024-03-01,65,Female,Type 2 Diabetes Mellitus,Semaglutide,Active,0.5mg Weekly,7.1,122,158,0.82,82,98,145,95
+T2D-103,ENC-103-1,2023-03-10,72,Male,Type 2 Diabetes Mellitus,Glimepiride,Active,2mg Daily,7.0,118,155,1.4,52,95,160,88
+T2D-103,ENC-103-2,2023-07-22,72,Male,Type 2 Diabetes Mellitus,Glimepiride,Active,2mg Daily,6.9,112,150,1.5,48,92,155,86
+T2D-103,ENC-103-3,2023-11-15,72,Male,Type 2 Diabetes Mellitus,Glimepiride,Dose Reduced,1mg Daily,7.1,120,158,1.6,44,98,162,90
+T2D-103,ENC-103-4,2024-04-05,73,Male,Type 2 Diabetes Mellitus,Sitagliptin,Switched,50mg Daily,7.1,122,160,1.7,40,94,158,89
+T2D-104,ENC-104-1,2023-01-20,52,Female,Type 2 Diabetes Mellitus,Metformin,Active,850mg BID,8.2,160,210,0.8,95,130,185,75
+T2D-104,ENC-104-2,2023-06-05,52,Female,Type 2 Diabetes Mellitus,Metformin,Active,850mg BID,8.1,158,205,0.8,94,128,180,76
+T2D-104,ENC-104-3,2023-10-30,52,Female,Type 2 Diabetes Mellitus,Dapagliflozin,Added,10mg Daily,7.5,135,178,0.82,92,115,160,88
+T2D-105,ENC-105-1,2023-04-15,61,Male,Type 2 Diabetes Mellitus,Metformin,Active,1000mg BID,7.8,148,192,1.2,65,110,195,80
+T2D-105,ENC-105-2,2023-08-20,61,Male,Type 2 Diabetes Mellitus,Metformin,Active,1000mg BID,7.9,152,198,1.3,60,115,205,79
+T2D-105,ENC-105-3,2023-12-18,61,Male,Type 2 Diabetes Mellitus,Metformin,Active,1000mg BID,8.0,155,202,1.4,56,118,210,81
+CTRL-201,ENC-201-1,2023-03-01,45,Male,Essential Hypertension,Amlodipine,Active,5mg Daily,5.4,92,120,0.9,98,102,130,90
+CTRL-201,ENC-201-2,2023-08-01,45,Male,Essential Hypertension,Amlodipine,Active,5mg Daily,5.3,90,118,0.88,100,99,125,92
+CTRL-202,ENC-202-1,2023-04-12,50,Female,Primary Osteoarthritis,Acetaminophen,Active,650mg PRN,5.5,95,125,0.7,105,115,140,85
