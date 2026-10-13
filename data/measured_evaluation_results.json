@@ -1,0 +1,678 @@
+{
+  "timestamp": "2026-10-13 12:15:39",
+  "model_name": "qwen3:8b",
+  "patients_evaluated": [
+    "T2D-101",
+    "T2D-102",
+    "T2D-103"
+  ],
+  "summary_by_config": {
+    "A": {
+      "factual_correctness_mean": 100.0,
+      "completeness_mean": 71.4,
+      "evidence_grounding_mean": 0.0,
+      "unsupported_claim_rate_mean": 19.0,
+      "relevance_mean": 4.5,
+      "median_response_time_s": 15.14,
+      "mean_response_time_s": 15.32
+    },
+    "B": {
+      "factual_correctness_mean": 100.0,
+      "completeness_mean": 95.2,
+      "evidence_grounding_mean": 100.0,
+      "unsupported_claim_rate_mean": 10.0,
+      "relevance_mean": 5.0,
+      "median_response_time_s": 37.71,
+      "mean_response_time_s": 40.0
+    },
+    "C": {
+      "factual_correctness_mean": 100.0,
+      "completeness_mean": 95.2,
+      "evidence_grounding_mean": 100.0,
+      "unsupported_claim_rate_mean": 4.0,
+      "relevance_mean": 5.0,
+      "median_response_time_s": 31.58,
+      "mean_response_time_s": 32.5
+    },
+    "D": {
+      "factual_correctness_mean": 100.0,
+      "completeness_mean": 100.0,
+      "evidence_grounding_mean": 100.0,
+      "unsupported_claim_rate_mean": 0.0,
+      "relevance_mean": 4.8,
+      "median_response_time_s": 40.63,
+      "mean_response_time_s": 54.54
+    },
+    "Ablation_Labs_Only": {
+      "factual_correctness_mean": 100.0,
+      "completeness_mean": 100.0,
+      "evidence_grounding_mean": 100.0,
+      "unsupported_claim_rate_mean": 3.5,
+      "relevance_mean": 5.0,
+      "median_response_time_s": 28.34,
+      "mean_response_time_s": 43.12
+    },
+    "Ablation_Meds_Only": {
+      "factual_correctness_mean": 100.0,
+      "completeness_mean": 95.2,
+      "evidence_grounding_mean": 100.0,
+      "unsupported_claim_rate_mean": 3.5,
+      "relevance_mean": 4.7,
+      "median_response_time_s": 24.13,
+      "mean_response_time_s": 38.24
+    }
+  },
+  "retrieval_benchmark": {
+    "k1": {
+      "k": 1,
+      "queries_evaluated": 6,
+      "precision_at_k": 1.0,
+      "recall_at_k": 0.7222,
+      "hit_rate_at_k": 1.0,
+      "metric_definitions": {
+        "Precision@K": "Fraction of retrieved top-K documents that are relevant.",
+        "Recall@K": "Fraction of all relevant documents successfully retrieved in top-K.",
+        "Hit Rate@K": "Fraction of queries where at least one relevant document was in top-K."
+      }
+    },
+    "k3": {
+      "k": 3,
+      "queries_evaluated": 6,
+      "precision_at_k": 0.5,
+      "recall_at_k": 0.9444,
+      "hit_rate_at_k": 1.0,
+      "metric_definitions": {
+        "Precision@K": "Fraction of retrieved top-K documents that are relevant.",
+        "Recall@K": "Fraction of all relevant documents successfully retrieved in top-K.",
+        "Hit Rate@K": "Fraction of queries where at least one relevant document was in top-K."
+      }
+    },
+    "k5": {
+      "k": 5,
+      "queries_evaluated": 6,
+      "precision_at_k": 0.3333,
+      "recall_at_k": 1.0,
+      "hit_rate_at_k": 1.0,
+      "metric_definitions": {
+        "Precision@K": "Fraction of retrieved top-K documents that are relevant.",
+        "Recall@K": "Fraction of all relevant documents successfully retrieved in top-K.",
+        "Hit Rate@K": "Fraction of queries where at least one relevant document was in top-K."
+      }
+    }
+  },
+  "laboratory_trend_benchmark": {
+    "total_evaluations": 35,
+    "correct_identifications": 35,
+    "accuracy_pct": 100.0,
+    "sample_results": [
+      {
+        "patient_id": "T2D-101",
+        "test_name": "hba1c",
+        "measurements": 4,
+        "first_value": 7.4,
+        "latest_value": 8.7,
+        "delta": 1.299999999999999,
+        "pct_change": 17.57,
+        "reference_label": "Increasing",
+        "computed_label": "Increasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-101",
+        "test_name": "fasting_glucose",
+        "measurements": 4,
+        "first_value": 138.0,
+        "latest_value": 180.0,
+        "delta": 42.0,
+        "pct_change": 30.43,
+        "reference_label": "Increasing",
+        "computed_label": "Increasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-101",
+        "test_name": "postprandial_glucose",
+        "measurements": 4,
+        "first_value": 185.0,
+        "latest_value": 230.0,
+        "delta": 45.0,
+        "pct_change": 24.32,
+        "reference_label": "Increasing",
+        "computed_label": "Increasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-101",
+        "test_name": "creatinine",
+        "measurements": 4,
+        "first_value": 1.0,
+        "latest_value": 1.3,
+        "delta": 0.30000000000000004,
+        "pct_change": 30.0,
+        "reference_label": "Increasing",
+        "computed_label": "Increasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-101",
+        "test_name": "egfr",
+        "measurements": 4,
+        "first_value": 88.0,
+        "latest_value": 68.0,
+        "delta": -20.0,
+        "pct_change": -22.73,
+        "reference_label": "Decreasing",
+        "computed_label": "Decreasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-101",
+        "test_name": "ldl",
+        "measurements": 4,
+        "first_value": 118.0,
+        "latest_value": 135.0,
+        "delta": 17.0,
+        "pct_change": 14.41,
+        "reference_label": "Increasing",
+        "computed_label": "Increasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-101",
+        "test_name": "triglycerides",
+        "measurements": 4,
+        "first_value": 175.0,
+        "latest_value": 225.0,
+        "delta": 50.0,
+        "pct_change": 28.57,
+        "reference_label": "Increasing",
+        "computed_label": "Increasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-102",
+        "test_name": "hba1c",
+        "measurements": 4,
+        "first_value": 9.1,
+        "latest_value": 7.1,
+        "delta": -2.0,
+        "pct_change": -21.98,
+        "reference_label": "Decreasing",
+        "computed_label": "Decreasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-102",
+        "test_name": "fasting_glucose",
+        "measurements": 4,
+        "first_value": 195.0,
+        "latest_value": 122.0,
+        "delta": -73.0,
+        "pct_change": -37.44,
+        "reference_label": "Decreasing",
+        "computed_label": "Decreasing",
+        "match": true
+      },
+      {
+        "patient_id": "T2D-102",
+        "test_name": "postprandial_glucose",
+        "measurements": 4,
+        "first_value": 245.0,
+        "latest_value": 158.0,
+        "delta": -87.0,
+        "pct_change": -35.51,
+        "reference_label": "Decreasing",
+        "computed_label": "Decreasing",
+        "match": true
+      }
+    ]
+  },
+  "error_analysis": [
+    {
+      "category": "Incomplete & Ungrounded (Configuration A Baseline)",
+      "patient_id": "T2D-101",
+      "config": "A",
+      "issue_type": "Lack of longitudinal trajectory and absence of guideline grounding",
+      "snippet": "**Clinical Summary for Patient T2D-101**  \n- **Patient ID:** T2D-101  \n- **Age/Gender:** 58-year-old male  \n- **Diagnosis:** Type 2 Diabetes Mellitus  \n- **Current Lab Results:**  \n  - **HbA1c:** 8.7% (target: <7%)  \n  - **Fasting Glucose:** 180.0 mg/dL (target: <130 mg/dL)  \n- **Current Medication:** Empagliflozin 10 mg daily (SGLT2 inhibitor)  \n\n**Key Observations:**  \n- Glycemic control metrics (HbA1c and fasting glucose) are above recommended...",
+      "clinical_critique": "The baseline model only receives a static snapshot. It cannot determine if HbA1c (e.g. 8.7%) is improving or deteriorating, lacks knowledge of past metformin dose titration or regimen failure, and cites no ADA/ICMR target thresholds."
+    },
+    {
+      "category": "Cross-Sectional Limitation (Configuration B)",
+      "patient_id": "T2D-101",
+      "config": "B",
+      "issue_type": "Guideline citation present, but trajectory over time missing",
+      "snippet": "**Patient Synthesis and Guideline Alignment for T2D-101**  \n**Clinical Summary**:  \n- **Age/Gender**: 58-year-old male  \n- **Diagnosis**: Type 2 Diabetes Mellitus (T2DM)  \n- **Key Metrics**:  \n  - **HbA1c**: 8.7% (\u22658.0% per ADA guidelines for less stringent targets)  \n  - **Fasting Glucose**: 180 mg/dL (exceeds WHO target of 80\u2013130 mg/dL)  \n  - **Medication**: Empagliflozin 10 mg daily (SGLT2 inhibitor)  \n\n---\n\n### **1. Glycemic Target Evaluation...",
+      "clinical_critique": "The summary cites ADA targets, but cannot correlate current renal status with historical eGFR decline or previous medication switches."
+    },
+    {
+      "category": "Ablation Omission (Ablation: Labs Only)",
+      "patient_id": "T2D-101",
+      "config": "Ablation_Labs_Only",
+      "issue_type": "Laboratory trends detected, but medication chronology omitted",
+      "snippet": "**Summary of Glycemic and Laboratory Trends for Patient T2D-101**  \n\n**1. Glycemic Trends:**  \n- **HbA1c**: Increased from 7.4% (53 mmol/mol) to 8.7% (70 mmol/mol), exceeding the ADA-recommended target of <7.0% (53 mmol/mol) for most non-pregnant adults with Type 2 Diabetes. The rise suggests inadequate glycemic control over the past 90\u2013120 days.  \n- **Fasting Glucose**: Rose from 138 mg/dL (7.7 mmol/L) to 180 mg/dL (10.0 mmol/L), surpassing the ...",
+      "clinical_critique": "Glycemic deterioration is noted, but the clinician cannot evaluate whether this represents primary medication failure, non-adherence, or inappropriate dosage."
+    },
+    {
+      "category": "Ablation Omission (Ablation: Meds Only)",
+      "patient_id": "T2D-101",
+      "config": "Ablation_Meds_Only",
+      "issue_type": "Medication timeline present, but quantitative lab trajectories absent",
+      "snippet": "**Medication Trajectory Summary for T2D-101**  \nPatient T2D-101, a 58-year-old male, underwent two key medication adjustments between 2023-05-20 and 2023-09-18.  \n\n1. **Metformin Dose Increase (2023-05-20):**  \n   - Metformin was escalated from 500mg BID to 1000mg BID. This aligns with ADA 2024 guidelines, which emphasize dose titration of Metformin to achieve glycemic targets (HbA1c <7.0%) while minimizing hypoglycemia risk. The adjustment likel...",
+      "clinical_critique": "Medication switches are documented, but clinical rationale (e.g. rising creatinine or worsening eGFR) cannot be verified without lab trends."
+    }
+  ],
+  "detailed_runs": [
+    {
+      "patient_id": "T2D-101",
+      "config": "A",
+      "response_time_s": 15.14,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 71.4,
+      "evidence_grounding_pct": 0.0,
+      "unsupported_claim_rate_pct": 20.9,
+      "relevance": 4.7,
+      "citations_count": 0,
+      "summary": "**Clinical Summary for Patient T2D-101**  \n- **Patient ID:** T2D-101  \n- **Age/Gender:** 58-year-old male  \n- **Diagnosis:** Type 2 Diabetes Mellitus  \n- **Current Lab Results:**  \n  - **HbA1c:** 8.7% (target: <7%)  \n  - **Fasting Glucose:** 180.0 mg/dL (target: <130 mg/dL)  \n- **Current Medication:** Empagliflozin 10 mg daily (SGLT2 inhibitor)  \n\n**Key Observations:**  \n- Glycemic control metrics (HbA1c and fasting glucose) are above recommended targets, indicating suboptimal glucose management.  \n- Empagliflozin is currently prescribed, but its efficacy may require adjunctive therapies or dose adjustments.  \n\n**Missing Context:**  \n- No longitudinal data (e.g., prior HbA1c trends, medication changes, or comorbidities) is available to assess treatment response or progression.  \n\n**Note:** This summary is based solely on the provided snapshot. A qualified healthcare professional must review this information for individualized clinical decision-making.",
+      "verified_facts": [
+        "Correct latest HbA1c: 8.7%",
+        "Correct latest Fasting Glucose: 180.0 mg/dL",
+        "Accurately identified recorded medication: Empagliflozin"
+      ],
+      "factual_errors": [],
+      "missing_facets": [
+        "renal_function",
+        "lipid_panel"
+      ]
+    },
+    {
+      "patient_id": "T2D-101",
+      "config": "B",
+      "response_time_s": 37.71,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 10.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Patient Synthesis and Guideline Alignment for T2D-101**  \n**Clinical Summary**:  \n- **Age/Gender**: 58-year-old male  \n- **Diagnosis**: Type 2 Diabetes Mellitus (T2DM)  \n- **Key Metrics**:  \n  - **HbA1c**: 8.7% (\u22658.0% per ADA guidelines for less stringent targets)  \n  - **Fasting Glucose**: 180 mg/dL (exceeds WHO target of 80\u2013130 mg/dL)  \n  - **Medication**: Empagliflozin 10 mg daily (SGLT2 inhibitor)  \n\n---\n\n### **1. Glycemic Target Evaluation**  \n**ADA 2024 Guidelines**:  \n- **HbA1c Goal**:  \n  - **Less stringent targets (<8.0%)** are appropriate for patients with comorbidities, long-standing diabetes, or limited life expectancy (e.g., advanced complications, severe hypoglycemia history).  \n  - **Strict targets (<7.0%)** are not recommended for this patient due to age, diabetes duration, and potential for hypoglycemia with SGLT2 inhibitors.  \n- **Fasting Glucose**:  \n  - The patient\u2019s fasting glucose (180 mg/dL) exceeds the WHO target of 80\u2013130 mg/dL, indicating possible hepatic glucose overproduction or basal insulin deficiency.  \n\n**Key Action**: Monitor for postprandial hyperglycemia (target <180 mg/dL post-meal) and assess discordance between HbA1c and fasting glucose, which may reflect significant postprandial excursions.  \n\n---\n\n### **2. Laboratory Monitoring Requirements**  \n**ICMR & ADA 2023\u20132024 Guidelines**:  \n- **HbA1c**:  \n  - Quarterly testing is required due to suboptimal glycemic control (HbA1c >8.0%).  \n- **Renal Function**:  \n  - **eGFR** and **urinary albumin-to-creatinine ratio (UACR)** should be evaluated annually (or more frequently if eGFR <60 mL/min/1.73m\u00b2) due to Empagliflozin use, which increases renal risk.  \n- **Lipid Panel**:  \n  - Annual fasting lipid profile (Total cholesterol, LDL-C, HDL-C, Triglycerides) is mandatory.  \n- **Liver Function**:  \n  - **AST/ALT** should be checked annually, given the association of SGLT2 inhibitors with Metabolic Dysfunction-Associated Steatohepatitis (MASH).  \n- **Electrolytes**:  \n  - Monitor **potassium** and **electrolytes** due to Empagliflozin\u2019s risk of hypokalemia.  \n\n---\n\n### **3. Glycemic Monitoring Recommendations**  \n**WHO & ADA 2023\u20132024 Guidelines**:  \n- **Fasting Glucose**: 180 mg/dL requires intervention to address hepatic glucose output or basal insulin deficiency.  \n- **Postprandial Glucose**: Target <180 mg/dL (achieved in this patient).  \n- **Self-Monitoring of Blood Glucose (SMBG)**:  \n  - Structured periodic testing is recommended for non-insulin regimens. Consider increasing frequency if postprandial excursions are suspected.  \n\n---\n\n### **4. Clinical Considerations**  \n- **Empagliflozin Use**:  \n  - Monitor for **diabetic ketoacidosis (DKA)** risk (especially in patients with poor glycemic control).  \n  - Ensure **adequate hydration** to mitigate acute kidney injury risk.  \n- **Comorbidities**:  \n  - No explicit comorbidities are noted in the snapshot, but routine monitoring for MASH, cardiovascular disease, and nephropathy is critical.  \n\n---\n\n### **5. Next Steps (for Review by Healthcare Provider)**  \n1. Adjust glycemic targets based on patient-specific factors (e.g., comorbidities, hypoglycemia risk).  \n2. Initiate quarterly HbA1c testing and annual eGFR/UACR monitoring.  \n3. Evaluate lipid profile, liver enzymes, and electrolytes.  \n4. Address fasting hyperglycemia through lifestyle modifications or pharmacologic adjustments (e.g., metformin, GLP-1 receptor agonists).  \n\n**Citations**:  \n- ADA 2024: Glycemic Targets, Diabetes Care 2024;47(Suppl. 1):S111\u2013S125  \n- ICMR & ADA 2023\u20132024: Comprehensive Medical Evaluation, ICMR Guidelines 2023, ADA Standards 2024  \n- WHO & ADA 2023\u20132024: Glycemic Monitoring, WHO NCD Interventions 2023, ADA Standards 2024  \n\n**Note**: This synthesis is for informational purposes only. Clinical decisions must be made by a qualified healthcare provider.",
+      "verified_facts": [
+        "Correct latest HbA1c: 8.7%",
+        "Correct latest Fasting Glucose: 180.0 mg/dL",
+        "Accurately identified recorded medication: Empagliflozin",
+        "Accurately identified recorded medication: Metformin"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-101",
+      "config": "C",
+      "response_time_s": 31.58,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 85.7,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 4.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Patient Longitudinal History Summary and Guideline Correlation**  \n**Patient ID:** T2D-101 (Male, 58 years)  \n**Key Trends:**  \n- **HbA1c:** Increased from 7.4% (2023-01-15) to 8.7% (2024-02-10).  \n- **Glucose:** Rose from 138 mg/dL (2023-01-15) to 180 mg/dL (2024-02-10).  \n- **Medications:** Metformin (500mg BID \u2192 1000mg BID) and Empagliflozin (10mg Daily).  \n\n---\n\n### **Correlation with Retrieved Guidelines**  \n1. **Glycemic Targets (ADA 2024):**  \n   - The patient\u2019s HbA1c of **8.7% (79 mmol/mol)** exceeds the recommended target of **<7.0% (53 mmol/mol)** for most non-pregnant adults with Type 2 Diabetes.  \n   - Less stringent targets (**<8.0% or 8.5%**) may be considered if comorbidities or treatment barriers exist. However, the patient\u2019s HbA1c is **above this range**, indicating suboptimal glycemic control.  \n   - **HbA1c reflects average glucose over 90\u2013120 days**, so recent trends (e.g., 2024-02-10) suggest persistent hyperglycemia.  \n\n2. **Monitoring Recommendations (ICMR/ADA 2023\u20132024):**  \n   - **HbA1c testing frequency:** Quarterly monitoring is required due to non-achievement of glycemic goals.  \n   - **eGFR and electrolytes:** The patient is on **Empagliflozin** (SGLT2 inhibitor), necessitating annual **eGFR** and **serum potassium** checks. **eGFR data is unavailable** in the record, which is critical for safety (e.g., risk of acute kidney injury).  \n   - **UACR:** Annual urinary albumin-to-creatinine ratio is needed to screen for diabetic kidney disease.  \n\n3. **Glycemic Monitoring (WHO/ADA 2023\u20132024):**  \n   - **Fasting glucose:** 138\u2013180 mg/dL exceeds the target of **80\u2013130 mg/dL**, reflecting hepatic glucose output and basal insulin deficiency.  \n   - **Postprandial glucose:** 152\u2013180 mg/dL approaches the upper limit of **<180 mg/dL**, suggesting impaired insulin secretion and peripheral resistance.  \n   - **SMBG frequency:** Structured testing is recommended for non-insulin regimens, but the patient\u2019s glucose trends suggest potential postprandial excursions.  \n\n---\n\n### **Key Concerns and Next Steps**  \n- **HbA1c and glucose trends** indicate inadequate glycemic control despite medication adjustments.  \n- **Missing eGFR data** for Empagliflozin safety monitoring.  \n- **Need for quarterly HbA1c** and **annual UACR** to assess microvascular risk.  \n- **Fasting glucose** is persistently elevated, requiring lifestyle or pharmacologic intervention.  \n\n**Note:** This analysis is for review by a qualified healthcare professional. No diagnoses, prescriptions, or dosage changes are recommended.  \n\n**Citations:**  \n1. ADA Standards of Care 2024 (Glycemic Targets).  \n2. ICMR/ADA Guidelines 2023\u20132024 (Monitoring Recommendations).  \n3. WHO/ADA Standards 2023\u20132024 (Glycemic Monitoring).",
+      "verified_facts": [
+        "Correct latest HbA1c: 8.7%",
+        "Correct baseline HbA1c: 7.4%",
+        "Correct latest Fasting Glucose: 180.0 mg/dL",
+        "Correct baseline Fasting Glucose: 138.0 mg/dL",
+        "Accurately identified recorded medication: Empagliflozin",
+        "Accurately identified recorded medication: Metformin"
+      ],
+      "factual_errors": [],
+      "missing_facets": [
+        "lipid_panel"
+      ]
+    },
+    {
+      "patient_id": "T2D-101",
+      "config": "D",
+      "response_time_s": 38.79,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 0.0,
+      "relevance": 4.5,
+      "citations_count": 3,
+      "summary": "**Structured Clinical Summary for T2D-101**  \n\n---\n\n### **1. Patient Overview**  \n- **Patient ID:** T2D-101  \n- **Demographics:** Male, 58 years old  \n- **Timeline:** 2023-01-15 to 2024-02-10 (4 encounters)  \n- **Key Clinical Context:**  \n  - Rising glycemic markers (HbA1c, fasting/postprandial glucose)  \n  - Progressive decline in renal function (eGFR)  \n  - Increasing cardiovascular risk factors (LDL, triglycerides)  \n  - Medication regimen evolution (Metformin \u2192 Empagliflozin)  \n  - **Adherence Status:** Unavailable  \n\n---\n\n### **2. Longitudinal Laboratory Trajectory**  \n**Critical Trends:**  \n- **HbA1c:** \u2191 7.4% \u2192 8.7% (+17.57%)  \n  - Exceeds ADA-recommended target (<7.0%) and suggests poor glycemic control.  \n- **Fasting Glucose:** \u2191 138 mg/dL \u2192 180 mg/dL (+30.43%)  \n  - Above WHO target (80\u2013130 mg/dL) and indicates hepatic glucose overproduction.  \n- **Postprandial Glucose:** \u2191 185 mg/dL \u2192 230 mg/dL (+24.32%)  \n  - Exceeds WHO postprandial target (<180 mg/dL), reflecting impaired insulin secretion.  \n- **Creatinine:** \u2191 1.0 mg/dL \u2192 1.3 mg/dL (+30%)  \n  - Suggests declining renal function.  \n- **eGFR:** \u2193 88 mL/min/1.73m\u00b2 \u2192 68 mL/min/1.73m\u00b2 (-22.73%)  \n  - Indicates progressive kidney disease (Stage 3a CKD).  \n- **Lipids:**  \n  - LDL \u2191 118 \u2192 135 mg/dL (+14.41%)  \n  - Triglycerides \u2191 175 \u2192 225 mg/dL (+28.57%)  \n  - Elevated cardiovascular risk.  \n\n**Clinical Implication:**  \n- Marked discordance between HbA1c and fasting glucose suggests significant postprandial hyperglycemia.  \n- Rising creatinine and falling eGFR raise concerns for diabetic nephropathy or SGLT2 inhibitor-related renal effects.  \n\n---\n\n### **3. Medication History & Regimen Evolution**  \n- **Metformin Dose Adjustment:**  \n  - 2023-05-20: 500mg BID \u2192 1000mg BID  \n- **Regimen Change:**  \n  - 2023-09-18: Metformin \u2192 Empagliflozin (SGLT2 inhibitor)  \n- **Key Considerations:**  \n  - Empagliflozin may contribute to creatinine elevation (especially in patients with pre-existing CKD).  \n  - SGLT2 inhibitors are contraindicated in eGFR < 30 mL/min/1.73m\u00b2 (per ADA/ICMR guidelines).  \n\n---\n\n### **4. Grounded Medical Context**  \n**Guideline Citations:**  \n1. **ADA 2024 Glycemic Targets:**  \n   - HbA1c >8.0% indicates suboptimal control, requiring regimen adjustment (Section 6).  \n   - Postprandial glucose >180 mg/dL warrants intervention (Section 6).  \n2. **ICMR/ADA 2023-2024 Monitoring Recommendations:**  \n   - eGFR <60 mL/min/1.73m\u00b2 requires quarterly creatinine checks (Section 3).  \n   - Lipid panel (LDL, triglycerides) should be monitored annually (Section 3).  \n3. **WHO 2023 Glycemic Monitoring:**  \n   - Fasting glucose >130 mg/dL and postprandial >180 mg/dL indicate poor glycemic control (Section 6).  \n\n---\n\n### **5. Clinical Points Warranting Clinician Review**  \n- **Glycemic Control:**  \n  - HbA1c >8.0% and postprandial glucose >180 mg/dL necessitate re-evaluation of antihyperglycemic therapy.  \n- **Renal Function:**  \n  - eGFR decline and creatinine rise may require discontinuation or dose adjustment of Empagliflozin (per ADA/ICMR guidelines).  \n- **Cardiovascular Risk:**  \n  - Rising LDL and triglycerides demand lipid-lowering intervention (e.g., statins).  \n- **Medication Adherence:**  \n  - Unavailable adherence data limits assessment of regimen efficacy.  \n\n---\n\n### **6. Missing Data & Longitudinal Limitations**  \n- **Missing Data:**  \n  - Medication adherence status (critical for evaluating regimen effectiveness).  \n  - Urinary albumin-to-creatinine ratio (UACR) for diabetic nephropathy screening.  \n  - Liver enzymes (AST, ALT) to assess for MASH (per ICMR guidelines).  \n  - Electrolytes (potassium) due to SGLT2 inhibitor use.  \n- **Longitudinal Limitations:**  \n  - Only 4 encounters (sparse data for trend analysis).  \n  - No data on comorbidities (e.g., hypertension, cardiovascular disease).  \n  - No information on dietary/lifestyle interventions.  \n\n---  \n**Note:** This summary is for review by a qualified healthcare professional. No diagnoses, prescriptions, or treatment recommendations are provided.",
+      "verified_facts": [
+        "Correct latest HbA1c: 8.7%",
+        "Correct baseline HbA1c: 7.4%",
+        "Correct latest Fasting Glucose: 180.0 mg/dL",
+        "Correct baseline Fasting Glucose: 138.0 mg/dL",
+        "Correct latest eGFR: 68.0",
+        "Correct latest Creatinine: 1.3",
+        "Accurately identified recorded medication: Empagliflozin",
+        "Accurately identified recorded medication: Metformin",
+        "Correct trend identification for HBA1C (increasing)",
+        "Correct trend identification for FASTING_GLUCOSE (increasing)",
+        "Correct trend identification for POSTPRANDIAL_GLUCOSE (increasing)",
+        "Correct trend identification for CREATININE (increasing)",
+        "Correct trend identification for LDL (increasing)",
+        "Correct trend identification for TRIGLYCERIDES (increasing)"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-101",
+      "config": "Ablation_Labs_Only",
+      "response_time_s": 28.34,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 3.5,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Summary of Glycemic and Laboratory Trends for Patient T2D-101**  \n\n**1. Glycemic Trends:**  \n- **HbA1c**: Increased from 7.4% (53 mmol/mol) to 8.7% (70 mmol/mol), exceeding the ADA-recommended target of <7.0% (53 mmol/mol) for most non-pregnant adults with Type 2 Diabetes. The rise suggests inadequate glycemic control over the past 90\u2013120 days.  \n- **Fasting Glucose**: Rose from 138 mg/dL (7.7 mmol/L) to 180 mg/dL (10.0 mmol/L), surpassing the WHO target of <130 mg/dL (7.2 mmol/L). This reflects heightened hepatic glucose production or basal insulin deficiency.  \n- **Postprandial Glucose**: Increased from 185 mg/dL (10.3 mmol/L) to 230 mg/dL (12.8 mmol/L), exceeding the WHO target of <180 mg/dL (10.0 mmol/L). This indicates impaired first-phase insulin secretion and/or peripheral insulin resistance.  \n\n**2. Renal Function Trends:**  \n- **Creatinine**: Increased from 1.0 mg/dL to 1.3 mg/dL (+30%), suggesting reduced glomerular filtration.  \n- **eGFR**: Declined from 88 mL/min/1.73m\u00b2 to 68 mL/min/1.73m\u00b2 (\u221220%), indicating progressive kidney dysfunction. The ICMR/ADA guidelines recommend more frequent monitoring (every 3\u20136 months) for patients with eGFR <60 mL/min/1.73m\u00b2, which this patient now meets.  \n\n**3. Lipid Profile Trends:**  \n- **LDL-C**: Increased from 118 mg/dL to 135 mg/dL (+17%), and **Triglycerides** rose from 175 mg/dL to 225 mg/dL (+50%). These trends align with the ICMR/ADA recommendation for annual lipid panel monitoring but suggest potential cardiovascular risk escalation.  \n\n**4. Clinical Implications (Evidence-Based):**  \n- **Glycemic Control**: The patient\u2019s HbA1c and glucose levels exceed ADA/WHO targets, increasing risks for microvascular complications (e.g., nephropathy, retinopathy) and macrovascular disease.  \n- **Renal Health**: The eGFR decline and rising creatinine are concerning for diabetic nephropathy. The ICMR/ADA guidelines emphasize annual urinary albumin-to-creatinine ratio (UACR) testing to detect early kidney disease, which is currently missing in this record.  \n- **Cardiovascular Risk**: Rising LDL and triglycerides necessitate closer lipid management, as these are independent risk factors for cardiovascular events in T2DM.  \n\n**Next Steps (for Review by Healthcare Professional):**  \n- Re-evaluate glycemic targets, considering the patient\u2019s eGFR and potential need for less stringent goals (per ADA).  \n- Initiate or adjust lipid-lowering therapy, given the elevated LDL and triglycerides.  \n- Perform UACR testing to assess for diabetic kidney disease.  \n- Monitor renal function more frequently (every 3\u20136 months) due to declining eGFR.  \n\n**Note:** Medication changes, comorbidities, and clinical context (e.g., duration of diabetes, cardiovascular history) are not included in this analysis. This summary is intended for review by a qualified healthcare professional.",
+      "verified_facts": [
+        "Correct latest HbA1c: 8.7%",
+        "Correct baseline HbA1c: 7.4%",
+        "Correct latest Fasting Glucose: 180.0 mg/dL",
+        "Correct baseline Fasting Glucose: 138.0 mg/dL",
+        "Correct latest eGFR: 68.0",
+        "Correct latest Creatinine: 1.3",
+        "Correct trend identification for HBA1C (increasing)",
+        "Correct trend identification for FASTING_GLUCOSE (increasing)",
+        "Correct trend identification for POSTPRANDIAL_GLUCOSE (increasing)",
+        "Correct trend identification for CREATININE (increasing)",
+        "Correct trend identification for LDL (increasing)",
+        "Correct trend identification for TRIGLYCERIDES (increasing)"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-101",
+      "config": "Ablation_Meds_Only",
+      "response_time_s": 22.79,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 85.7,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 3.5,
+      "relevance": 4.5,
+      "citations_count": 3,
+      "summary": "**Medication Trajectory Summary for T2D-101**  \nPatient T2D-101, a 58-year-old male, underwent two key medication adjustments between 2023-05-20 and 2023-09-18.  \n\n1. **Metformin Dose Increase (2023-05-20):**  \n   - Metformin was escalated from 500mg BID to 1000mg BID. This aligns with ADA 2024 guidelines, which emphasize dose titration of Metformin to achieve glycemic targets (HbA1c <7.0%) while minimizing hypoglycemia risk. The adjustment likely aimed to improve glycemic control, as Metformin is first-line for Type 2 Diabetes and dose escalation is a standard strategy for suboptimal responses.  \n\n2. **Switch to Empagliflozin (2023-09-18):**  \n   - Metformin was replaced with Empagliflozin, an SGLT2 inhibitor. This change reflects adherence to ADA 2024 and ICMR/ADA 2023-2024 guidelines, which recommend SGLT2 inhibitors for patients with cardiovascular risk, renal disease, or to reduce cardiovascular mortality. Empagliflozin also offers benefits for blood pressure, weight management, and kidney protection, which may be relevant given its role in mitigating microvascular complications.  \n\n**Clinical Context:**  \nThe trajectory suggests a shift from monotherapy (Metformin) to a newer class of medication (SGLT2 inhibitor), consistent with evolving standards for glycemic control and comorbidity management. However, specific comorbidities or lab results (e.g., eGFR, UACR) are not provided to further contextualize the decision.  \n\n**Note:** This summary is based on medication changes and guidelines; individual patient factors require clinical evaluation.",
+      "verified_facts": [
+        "Accurately identified recorded medication: Empagliflozin",
+        "Accurately identified recorded medication: Metformin"
+      ],
+      "factual_errors": [],
+      "missing_facets": [
+        "lipid_panel"
+      ]
+    },
+    {
+      "patient_id": "T2D-102",
+      "config": "A",
+      "response_time_s": 11.96,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 71.4,
+      "evidence_grounding_pct": 0.0,
+      "unsupported_claim_rate_pct": 18.0,
+      "relevance": 4.7,
+      "citations_count": 0,
+      "summary": "**Clinical Summary for Patient T2D-102**  \n- **Patient ID:** T2D-102  \n- **Age/Gender:** 64-year-old Female  \n- **Diagnosis:** Type 2 Diabetes Mellitus  \n- **Latest HbA1c:** 7.1% (average blood glucose ~194 mg/dL)  \n- **Latest Fasting Glucose:** 122.0 mg/dL (borderline elevated)  \n- **Current Medication:** Semaglutide 0.5 mg weekly  \n\n**Notes:**  \n- The provided data represents a single snapshot and lacks longitudinal context (e.g., prior HbA1c trends, glucose variability, comorbidities, or medication history).  \n- No diagnostic conclusions or therapeutic recommendations can be made without additional clinical evaluation.  \n\n**Disclaimer:** This summary is for informational purposes only and must be reviewed by a qualified healthcare professional.",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Accurately identified recorded medication: Semaglutide"
+      ],
+      "factual_errors": [],
+      "missing_facets": [
+        "renal_function",
+        "lipid_panel"
+      ]
+    },
+    {
+      "patient_id": "T2D-102",
+      "config": "B",
+      "response_time_s": 35.86,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 85.7,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 10.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Patient Synthesis with Medical Guidelines (T2D-102):**  \n\n### **Glycemic Control and Targets**  \n- **Current HbA1c:** 7.1% (54 mmol/mol), slightly above the ADA-recommended target of <7.0% (53 mmol/mol) for non-pregnant adults with Type 2 Diabetes.  \n- **Fasting Glucose:** 122 mg/dL (6.8 mmol/L), which falls within the **prediabetes range** (100\u2013125 mg/dL) per ADA criteria. However, this is consistent with her established diagnosis of T2DM, as her HbA1c and medication regimen (Semaglutide) suggest ongoing glycemic management.  \n\n**Guideline Context (ADA 2024):**  \n- A target of <7.0% is appropriate for many patients, but **less stringent targets (<8.0%) may be considered** if the patient has limited life expectancy, comorbidities, or difficulty achieving stricter goals. Given her age (64) and potential for comorbidities (e.g., MASH, as noted in ICMR guidelines), a slightly higher HbA1c may be acceptable.  \n- **Monitoring:** HbA1c should be tested **quarterly** if therapy has changed or if goals are not met.  \n\n---\n\n### **Comorbidity and Laboratory Monitoring**  \n**ICMR/ADA 2023\u20132024 Guidelines:**  \n1. **Renal Function:**  \n   - Annual **serum creatinine** and **eGFR** (every 3\u20136 months if eGFR <60 mL/min/1.73m\u00b2).  \n   - **Spot urinary albumin-to-creatinine ratio (UACR)** annually to screen for diabetic kidney disease.  \n\n2. **Cardiometabolic Risk:**  \n   - **Fasting lipid panel** (total cholesterol, LDL-C, HDL-C, triglycerides) annually.  \n   - **Liver enzymes (AST, ALT)** annually, especially given the high prevalence of **Metabolic Dysfunction-Associated Steatohepatitis (MASH)** in T2DM.  \n\n3. **Electrolytes:**  \n   - Monitor **serum potassium and electrolytes** if she is on **SGLT2 inhibitors** (e.g., Semaglutide), as these medications carry risks of hypokalemia and other electrolyte imbalances.  \n\n---\n\n### **Medication and Treatment Considerations**  \n- **Semaglutide (0.5 mg weekly):** A GLP-1 receptor agonist that improves glycemic control and may reduce cardiovascular risk. No adjustments to dosage or medication are recommended without clinical evaluation.  \n- **HbA1c and Fasting Glucose:** Her current values suggest **mild hyperglycemia**, but her HbA1c is close to the target. Further optimization may require lifestyle adjustments, dietary review, or adjunctive therapies, though this is outside the scope of this review.  \n\n---\n\n### **Key Takeaways**  \n- **HbA1c:** 7.1% is slightly above the ADA target but may be acceptable given her age and potential comorbidities.  \n- **Monitoring Needs:** Quarterly HbA1c, annual renal and liver function tests, and lipid profiling are recommended.  \n- **Medication Safety:** Semaglutide requires monitoring for electrolyte imbalances and renal function.  \n\n**Citations:**  \n1. ADA Standards of Care 2024 (Glycemic Targets, p. S111\u2013S125).  \n2. ICMR/ADA Guidelines 2023\u20132024 (Comprehensive Medical Evaluation, Ch. 3).  \n3. ADA Standards of Care 2024 (Classification of Diabetes, p. S20\u2013S42).  \n\n**Note:** This synthesis is for review by a qualified healthcare professional. No independent diagnoses, prescriptions, or dosage changes should be made.",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Accurately identified recorded medication: Semaglutide"
+      ],
+      "factual_errors": [],
+      "missing_facets": [
+        "limitations_acknowledged"
+      ]
+    },
+    {
+      "patient_id": "T2D-102",
+      "config": "C",
+      "response_time_s": 26.15,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 4.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Patient Longitudinal History Summary:**  \nPatient T2D-102, a 64-year-old female, has demonstrated progressive glycemic improvement over 14 months (2023-02-05 to 2024-03-01). Key trends:  \n- **HbA1c**: Declined from 9.1% to 7.1% (from 2023-02-05 to 2024-03-01), meeting the ADA 2024 target of <7.0% (53 mmol/mol) for non-pregnant adults.  \n- **Glucose**: Fasting glucose improved from 195 mg/dL to 122 mg/dL, aligning with ADA glycemic targets.  \n- **Medications**: Initiated Metformin (1000mg BID) in 2023, then added Semaglutide (0.25mg weekly) in June 2023, with dose escalation to 0.5mg weekly in October 2023.  \n\n**Correlation with Retrieved Guidelines:**  \n1. **Glycemic Targets (ADA 2024):**  \n   - The patient\u2019s current HbA1c of 7.1% is within the recommended <7.0% target for non-pregnant adults, reflecting effective management of T2DM.  \n   - The ADA notes that stringent targets (<6.5%) are not typically required for patients with limited life expectancy or comorbidities (e.g., advanced complications). This patient\u2019s age (64) and absence of reported complications suggest the 7.0% target is appropriate.  \n\n2. **Monitoring Recommendations (ICMR/ADA 2023-2024):**  \n   - **HbA1c Frequency:** The patient\u2019s HbA1c was monitored quarterly (2023-02-05, 2023-06-12, 2023-10-14, 2024-03-01), consistent with guidelines for patients whose therapy has changed or who are not meeting goals.  \n   - **Missing Data:** No evidence of eGFR, UACR, lipid panel, or liver enzymes (AST/ALT) is provided. These are critical for assessing kidney function, cardiovascular risk, and liver health (e.g., MASH), as per ICMR/ADA guidelines.  \n\n3. **Therapeutic Adjustments:**  \n   - The addition of Semaglutide (a GLP-1 receptor agonist) aligns with ADA recommendations for patients not meeting glycemic targets, particularly given its efficacy in reducing HbA1c and cardiovascular risk.  \n\n**Conclusion:**  \nThe patient\u2019s glycemic control has improved significantly, meeting ADA 2024 targets. However, longitudinal data on renal function, lipid profile, and liver enzymes are missing, which are essential for comprehensive T2DM management. Further monitoring is recommended to address potential comorbidities (e.g., MASH, diabetic nephropathy).  \n\n**Citations:**  \n1. ADA Standards of Care (2024) \u2013 Glycemic Targets [S111\u2013S125].  \n2. ICMR/ADA Guidelines (2023-2024) \u2013 Comprehensive Medical Evaluation [Ch. 3, Section 4].  \n\n*Note: This summary is for review by a qualified healthcare professional. No diagnoses, prescriptions, or treatment modifications are recommended.*",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct baseline HbA1c: 9.1%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Correct baseline Fasting Glucose: 195.0 mg/dL",
+        "Accurately identified recorded medication: Metformin",
+        "Accurately identified recorded medication: Semaglutide"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-102",
+      "config": "D",
+      "response_time_s": 40.63,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 0.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Structured Clinical Summary for T2D-102**  \n\n---\n\n### **1. Patient Overview**  \n- **Demographics**: 64-year-old female with Type 2 Diabetes Mellitus (T2DM).  \n- **Clinical Timeline**: 4 encounters from **2023-02-05 to 2024-03-01**.  \n- **Key Outcomes**:  \n  - **HbA1c**: Improved from 9.1% to 7.1% (\u0394 -21.98%).  \n  - **Fasting Glucose**: Decreased from 195 mg/dL to 122 mg/dL (\u0394 -37.44%).  \n  - **Postprandial Glucose**: Reduced from 245 mg/dL to 158 mg/dL (\u0394 -35.51%).  \n  - **Renal Function**: Creatinine decreased (0.9 \u2192 0.82 mg/dL, \u0394 -8.89%), eGFR increased (78 \u2192 82 mL/min/1.73m\u00b2, \u0394 +5.13%).  \n  - **Lipids**: LDL decreased (142 \u2192 98 mg/dL, \u0394 -30.99%), Triglycerides decreased (220 \u2192 145 mg/dL, \u0394 -34.09%).  \n\n---\n\n### **2. Longitudinal Laboratory Trajectory**  \n**Glycemic Control**:  \n- **HbA1c**: Achieved target (<7.0%) per ADA 2024 guidelines, reflecting improved glycemic control.  \n- **Fasting/Postprandial Glucose**: Marked declines, consistent with effective glucose-lowering therapy.  \n\n**Renal Function**:  \n- **Creatinine**: Slight decrease, suggesting reduced renal stress.  \n- **eGFR**: Increase from 78 to 82 mL/min/1.73m\u00b2, indicating preserved or improved kidney function (per ICMR 2023 guidelines, which recommend annual eGFR monitoring).  \n\n**Lipid Profile**:  \n- LDL and Triglycerides show significant improvement, aligning with ADA 2024 lipid management goals for T2DM.  \n\n**Other Parameters**:  \n- No data on **urinary albumin-to-creatinine ratio (UACR)**, critical for detecting early diabetic kidney disease (ICMR 2023).  \n\n---\n\n### **3. Medication History & Regimen Evolution**  \n- **Initial Therapy**: Metformin (standard first-line for T2DM, per ADA 2024).  \n- **Regimen Change**:  \n  - **2023-06-12**: Switched to **Semaglutide** (GLP-1 receptor agonist), per ADA 2024 guidelines for patients with suboptimal glycemic control.  \n  - **2023-10-14**: Dose increased to **0.5 mg weekly** (from 0.25 mg weekly), reflecting dose titration for efficacy.  \n- **Adherence Status**: Unavailable (no ground-truth data).  \n\n---\n\n### **4. Grounded Medical Context**  \n**Glycemic Targets**:  \n- HbA1c <7.0% is appropriate for this patient (per ADA 2024), given her age and absence of severe comorbidities.  \n- Stringent targets (<6.5%) are not indicated due to lack of cardiovascular disease or life expectancy concerns.  \n\n**Renal Monitoring**:  \n- eGFR improvement aligns with ICMR 2023 guidelines (annual monitoring for eGFR <60 mL/min/1.73m\u00b2).  \n- Creatinine trends suggest reduced renal stress, but UACR data is missing (critical for early DKD detection).  \n\n**Lipid Management**:  \n- LDL and Triglycerides meet ADA 2024 targets, reducing cardiovascular risk.  \n\n**Medication Use**:  \n- Semaglutide is a recommended GLP-1RA for T2DM (ADA 2024), with dose adjustments based on efficacy.  \n\n---\n\n### **5. Clinical Points Warranting Clinician Review**  \n1. **HbA1c Target Achievement**: Confirm whether the 7.1% target is optimal or if further intensification is needed.  \n2. **Renal Function**: Monitor UACR to rule out diabetic kidney disease (ICMR 2023).  \n3. **Medication Adherence**: Assess adherence to Semaglutide, as non-adherence could impact sustained glycemic control.  \n4. **Comorbidities**: Evaluate for MASH (liver function tests not provided) and cardiovascular risk factors.  \n5. **Long-Term Monitoring**: Continue quarterly HbA1c and lipid checks (per ADA 2024).  \n\n---\n\n### **6. Missing Data & Longitudinal Limitations**  \n1. **Medication Adherence**: Unavailable, limiting assessment of therapy effectiveness.  \n2. **UACR**: Missing, critical for renal disease screening.  \n3. **Liver Function Tests**: Not provided, despite ICMR 2023 emphasis on AST/ALT monitoring for MASH.  \n4. **Comorbidities**: No data on cardiovascular disease, hypertension, or other conditions affecting T2DM management.  \n5. **Sample Size**: Only 4 encounters may not capture long-term trends or variability.  \n\n---  \n**Note**: This summary is for review by a qualified healthcare professional. No diagnoses or treatment recommendations are made.",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct baseline HbA1c: 9.1%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Correct baseline Fasting Glucose: 195.0 mg/dL",
+        "Correct latest eGFR: 82.0",
+        "Correct latest Creatinine: 0.82",
+        "Accurately identified recorded medication: Metformin",
+        "Accurately identified recorded medication: Semaglutide"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-102",
+      "config": "Ablation_Labs_Only",
+      "response_time_s": 26.64,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 3.5,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Summary of Glycemic and Laboratory Trends for Patient T2D-102**  \n*Based on longitudinal laboratory data (no medication trend analysis included)*  \n\n---\n\n### **Glycemic Trends**  \n- **HbA1c**: Decreased from **9.1%** to **7.1%** (\u0394 -2%).  \n  - Aligns with ADA 2024 guidelines, which recommend an HbA1c target of **<7.0%** for most non-pregnant adults with T2DM to reduce microvascular complications.  \n  - Note: HbA1c reflects average glucose over ~90\u2013120 days, with recent values weighted more heavily. This trend suggests improved glycemic control, though the latest value is slightly above the target.  \n\n- **Fasting Glucose**: Decreased from **195 mg/dL** to **122 mg/dL** (\u0394 -73 mg/dL).  \n  - Consistent with ADA 2024 criteria for diabetes diagnosis (FPG \u2265126 mg/dL) and supports progress toward glycemic goals.  \n\n- **Postprandial Glucose**: Decreased from **245 mg/dL** to **158 mg/dL** (\u0394 -87 mg/dL).  \n  - Indicates improved glucose metabolism after meals, critical for reducing macrovascular risk.  \n\n---\n\n### **Other Laboratory Trends**  \n- **Creatinine**: Decreased from **0.9 mg/dL** to **0.82 mg/dL** (\u0394 -0.08 mg/dL).  \n  - Suggests improved renal function, though further monitoring is recommended (ICMR/ADA 2023\u20132024 guidelines recommend annual creatinine/eGFR checks).  \n\n- **eGFR**: Increased from **78 mL/min/1.73m\u00b2** to **82 mL/min/1.73m\u00b2** (\u0394 +4 mL/min/1.73m\u00b2).  \n  - Reflects better kidney function, consistent with the inverse relationship between creatinine and eGFR.  \n\n- **Lipid Profile**:  \n  - **LDL-C**: Decreased from **142 mg/dL** to **98 mg/dL** (\u0394 -44 mg/dL).  \n  - **Triglycerides**: Decreased from **220 mg/dL** to **145 mg/dL** (\u0394 -75 mg/dL).  \n  - Both align with ADA/ICMR 2023\u20132024 recommendations for lipid management in T2DM, emphasizing annual monitoring and intervention for cardiovascular risk reduction.  \n\n---\n\n### **Key Observations**  \n1. **Multifactorial Improvement**: Glycemic, renal, and lipid parameters show consistent improvement over time, suggesting effective management of T2DM.  \n2. **Renal Function**: Rising eGFR and falling creatinine indicate preserved kidney function, critical for patients with T2DM.  \n3. **Glycemic Control**: While HbA1c is approaching the ADA target, further optimization may be needed to reduce long-term complications.  \n\n---\n\n### **Next Steps (Clinical Context)**  \n- Continue monitoring HbA1c, eGFR, and lipid panels as per ICMR/ADA guidelines.  \n- Assess for potential barriers to further glycemic improvement (e.g., diet, physical activity, comorbidities).  \n- Review for additional comorbidities (e.g., MASH, cardiovascular risk) per ICMR 2023 recommendations.  \n\n*Note: This summary is for review by a qualified healthcare professional. Medication changes, clinical context, and individualized goals are required for definitive management.*",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct baseline HbA1c: 9.1%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Correct baseline Fasting Glucose: 195.0 mg/dL",
+        "Correct latest eGFR: 82.0",
+        "Correct latest Creatinine: 0.82"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-102",
+      "config": "Ablation_Meds_Only",
+      "response_time_s": 24.13,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 3.5,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Medication Trajectory Summary for Patient T2D-102**  \n**Age:** 64, **Gender:** Female  \n\n1. **Regimen Change (2023-06-12):**  \n   - **Metformin \u2192 Semaglutide**  \n   - *Rationale:* This transition aligns with ADA 2024 guidelines, which recommend GLP-1 receptor agonists (e.g., Semaglutide) as a second-line therapy for patients with suboptimal glycemic control on metformin. Semaglutide is also noted for its efficacy in weight management and cardiovascular risk reduction, which may be relevant for long-term T2DM management.  \n\n2. **Dose Adjustment (2023-10-14):**  \n   - **Semaglutide 0.25mg Weekly \u2192 0.5mg Weekly**  \n   - *Rationale:* The dose escalation follows standard titration protocols for Semaglutide, which typically start at 0.25mg weekly and increase to 0.5mg weekly after 4 weeks to optimize glycemic control while minimizing gastrointestinal side effects. This adjustment is consistent with ADA 2024 recommendations for dose optimization in GLP-1 receptor agonist therapy.  \n\n**Key Considerations:**  \n- The medication trajectory reflects a stepwise approach to glycemic management, prioritizing GLP-1 agonists for improved HbA1c control and comorbidity management.  \n- **HbA1c targets** (<7.0% for most patients) are emphasized in ADA guidelines, though specific patient outcomes (e.g., current HbA1c levels) are unavailable for further analysis.  \n- Routine monitoring (e.g., eGFR, lipid panel, liver enzymes) is recommended per ICMR/ADA guidelines, but laboratory trends are excluded per this configuration.  \n\n**Note:** This summary is intended for review by a qualified healthcare professional to ensure alignment with individual patient needs and clinical context.",
+      "verified_facts": [
+        "Accurately identified recorded medication: Metformin",
+        "Accurately identified recorded medication: Semaglutide"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-103",
+      "config": "A",
+      "response_time_s": 18.87,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 71.4,
+      "evidence_grounding_pct": 0.0,
+      "unsupported_claim_rate_pct": 18.0,
+      "relevance": 4.2,
+      "citations_count": 0,
+      "summary": "**Clinical Summary for Patient T2D-103**  \n- **Patient Demographics**: Male, 72 years old.  \n- **Diagnosis**: Type 2 Diabetes Mellitus.  \n- **Current Lab Results**:  \n  - **HbA1c**: 7.1% (within target range for many patients, though individual goals may vary).  \n  - **Fasting Glucose**: 122.0 mg/dL (impaired fasting glucose; normal <100 mg/dL, prediabetic 100\u2013125 mg/dL).  \n- **Current Medication**: Sitagliptin 50 mg daily (DPP-4 inhibitor).  \n\n**Missing Longitudinal Context**:  \n- No historical data on HbA1c trends, fasting glucose variability, medication changes, comorbidities, or lifestyle factors (e.g., diet, exercise).  \n- No information on complications, glycemic control over time, or other therapies (e.g., metformin, insulin, or GLP-1 agonists).  \n\n**Note**: This summary is based solely on the provided snapshot. Longitudinal assessment requires additional clinical data. Always consult a qualified healthcare provider for patient-specific decisions.",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Accurately identified recorded medication: Sitagliptin"
+      ],
+      "factual_errors": [],
+      "missing_facets": [
+        "renal_function",
+        "lipid_panel"
+      ]
+    },
+    {
+      "patient_id": "T2D-103",
+      "config": "B",
+      "response_time_s": 46.42,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 10.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Patient Synthesis with Guideline Integration**  \n**Patient ID:** T2D-103 | **Age:** 72 | **Gender:** Male | **Diagnosis:** Type 2 Diabetes Mellitus  \n\n---\n\n### **1. Glycemic Control Assessment**  \n- **Latest HbA1c:** 7.1% (target: <7.0% per ADA guidelines).  \n  - *Guideline Reference:* ADA 2024 recommends <7.0% for many non-pregnant adults to reduce microvascular complications. However, stringent targets (<6.5%) are not advised for elderly patients or those with comorbidities (e.g., kidney disease, cardiovascular disease).  \n  - *Note:* The patient\u2019s HbA1c is slightly above target but within the range of \"less stringent\" targets (<8.0%) if comorbidities or limited life expectancy are present. Further evaluation of comorbidities is required to determine individualized goals.  \n\n- **Latest Fasting Glucose:** 122 mg/dL (within normal range but may indicate suboptimal glycemic control).  \n  - *Guideline Reference:* ADA 2024 emphasizes HbA1c as the primary metric for long-term glycemic control, though fasting glucose reflects recent glucose levels.  \n\n---\n\n### **2. Current Medication: Sitagliptin (50 mg Daily)**  \n- **Efficacy:**  \n  - DPP-4 inhibitors like Sitagliptin reduce HbA1c by 0.5\u20130.8% (modest effect).  \n  - *Guideline Reference:* ICMR 2023 highlights Sitagliptin\u2019s weight-neutral profile and negligible hypoglycemia risk, making it suitable for elderly patients.  \n- **Renal Considerations:**  \n  - *Guideline Reference:* Sitagliptin requires dose adjustment based on eGFR (not provided in the snapshot). If eGFR <60 mL/min/1.73m\u00b2, renal dosing adjustments are mandatory.  \n  - *Note:* eGFR is unavailable in the snapshot. Monitoring is critical for Sitagliptin safety.  \n\n---\n\n### **3. Laboratory Monitoring Requirements**  \n- **HbA1c:**  \n  - *Guideline Reference:* ICMR 2023 recommends quarterly HbA1c testing for patients not meeting glycemic goals. The patient\u2019s HbA1c (7.1%) is near target but requires closer monitoring.  \n- **Renal Function:**  \n  - *Guideline Reference:* ICMR 2023 mandates annual eGFR assessment; more frequent monitoring (every 3\u20136 months) is needed if eGFR <60 mL/min/1.73m\u00b2.  \n- **Urinary Albumin-to-Creatinine Ratio (UACR):**  \n  - *Guideline Reference:* Annual UACR testing is required to screen for diabetic kidney disease.  \n- **Lipid Panel & Liver Function:**  \n  - *Guideline Reference:* Annual fasting lipid panel (total cholesterol, LDL-C, HDL-C, triglycerides) and liver enzymes (AST, ALT) are recommended, especially for patients with metabolic dysfunction-associated steatohepatitis (MASH).  \n\n---\n\n### **4. Considerations for Medication Adjustment**  \n- **Current Therapy:** Sitagliptin is appropriate for elderly patients due to its safety profile. However, its modest HbA1c reduction may necessitate adjunctive therapy if glycemic targets are not met.  \n- **Avoidance of Sulfonylureas:**  \n  - *Guideline Reference:* Sulfonylureas (e.g., glimepiride) carry significant hypoglycemia risk in elderly patients and should not be combined with Sitagliptin.  \n\n---\n\n### **5. Summary of Recommendations**  \n- **Glycemic Target:** Maintain HbA1c <7.0% unless comorbidities or life expectancy suggest a less stringent target.  \n- **Monitoring:**  \n  - eGFR, UACR, lipid panel, and liver enzymes should be evaluated promptly.  \n  - HbA1c should be rechecked quarterly to assess response to Sitagliptin.  \n- **Therapy:** No medication changes are recommended without further clinical evaluation.  \n\n**Note:** This synthesis is for review by a qualified healthcare professional. No independent diagnoses, prescriptions, or dosage adjustments are provided.  \n\n---  \n**Citations:**  \n- ICMR Guidelines for Management of Type 2 Diabetes 2023  \n- ADA Standards of Care in Diabetes\u20142024  \n- DailyMed Prescribing Information for Sitagliptin and Sulfonylureas",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Correct latest Creatinine: 1.7",
+        "Accurately identified recorded medication: Sitagliptin",
+        "Accurately identified recorded medication: Glimepiride"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-103",
+      "config": "C",
+      "response_time_s": 39.76,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 4.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Patient Longitudinal History Summary & Guideline Correlation**  \n**Patient ID:** T2D-103 | **Age:** 72 | **Gender:** Male  \n\n### **Key Clinical Trends**  \n1. **HbA1c & Glucose Stability:**  \n   - HbA1c fluctuated between **6.9%\u20137.1%** (equivalent to ~53\u201354 mmol/mol), slightly above the ADA-recommended target of **<7.0%** (53 mmol/mol).  \n   - Fasting glucose remained stable at **112\u2013122 mg/dL**, within the ADA non-pregnant adult range (target: <130 mg/dL).  \n\n2. **Medication Evolution:**  \n   - **Glimepiride (2mg/day)** (2023-03-10 to 2023-11-15): Sulfonylurea with rapid initial HbA1c reduction but risk of hypoglycemia and weight gain.  \n   - **Switch to Sitagliptin (50mg/day)** (2024-04-05): DPP-4 inhibitor with weight-neutral profile, no hypoglycemia risk, but modest HbA1c reduction (0.5\u20130.8%).  \n\n3. **Dose Adjustments:**  \n   - Glimepiride dose reduced from **2mg/day to 1mg/day** in 2023-11-15, possibly to mitigate hypoglycemia risk (per ICMR guidelines).  \n\n---\n\n### **Guideline Correlation**  \n1. **Glycemic Targets (ADA 2024):**  \n   - Patient\u2019s HbA1c is **marginally above** the **<7.0%** target. Less stringent targets (<8.0%) may be appropriate due to:  \n     - Age (>70 years) and potential for hypoglycemia.  \n     - No mention of severe hypoglycemia history or advanced comorbidities.  \n   - **Recommendation:** Monitor HbA1c quarterly (per ICMR guidelines) and consider adjunctive therapies (e.g., metformin, SGLT2 inhibitors) if targets remain unmet.  \n\n2. **Medication Safety & Efficacy (ICMR 2023):**  \n   - **Sitagliptin:** Requires renal dose adjustment based on eGFR (not reported here). Monitor eGFR annually (per ICMR guidelines).  \n   - **Glimepiride:** Discontinued likely due to hypoglycemia risk in elderly patients. No evidence of beta-cell failure or weight gain noted.  \n\n3. **Monitoring Requirements (ICMR/ADA 2023\u20132024):**  \n   - **eGFR & Renal Function:** Critical for Sitagliptin (per ICMR). Missing data; recommend annual eGFR testing.  \n   - **UACR & Lipid Panel:** Not documented. Required for diabetic kidney disease screening and lipid management.  \n   - **Liver Function & Electrolytes:** Not mentioned. Given prevalence of MASH, annual AST/ALT monitoring is advised.  \n\n---\n\n### **Unresolved Issues**  \n- **Missing Data:** No lab results (eGFR, UACR, lipid panel, liver enzymes) or comorbidity details (e.g., cardiovascular disease, MASH).  \n- **HbA1c Stability:** Fluctuations may reflect measurement variability or incomplete therapy. Consider plasma glucose/fructosamine testing if red blood cell turnover is suspected (e.g., anemia, hemodialysis).  \n\n---\n\n### **Clinical Recommendations (for Review by Healthcare Provider)**  \n1. Reassess HbA1c goals based on patient risk profile (age, comorbidities).  \n2. Initiate **eGFR testing** and monitor renal function for Sitagliptin.  \n3. Evaluate **UACR** and **lipid panel** to address diabetic kidney disease and cardiovascular risk.  \n4. Consider **metformin** or **SGLT2 inhibitors** as adjuncts if HbA1c remains \u22657.0%.  \n5. Avoid sulfonylureas in future due to hypoglycemia risk; prefer DPP-4 inhibitors or GLP-1 receptor agonists.  \n\n**Citations:**  \n- ICMR Guidelines for Management of Type 2 Diabetes 2023; ADA Standards of Care 2024; DailyMed (Sitagliptin, Glimepiride).  \n\n**Note:** This analysis is for review by a qualified healthcare professional. No independent diagnosis or treatment recommendations are provided.",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct baseline HbA1c: 7.0%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Accurately identified recorded medication: Sitagliptin",
+        "Accurately identified recorded medication: Glimepiride",
+        "Correct trend identification for HBA1C (stable)"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-103",
+      "config": "D",
+      "response_time_s": 84.19,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 0.0,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Structured Clinical Summary for Patient T2D-103**  \n\n---\n\n### **1. Patient Overview**  \n- **Demographics**: Male, 72 years old, Type 2 Diabetes Mellitus (T2DM).  \n- **Timeline**: 4 longitudinal encounters (March 2023 to April 2024).  \n- **Key Concerns**:  \n  - Rising fasting and postprandial glucose levels.  \n  - Progressive decline in estimated glomerular filtration rate (eGFR) with concurrent increase in creatinine.  \n  - Medication regimen change from sulfonylurea (Glimepiride) to DPP-4 inhibitor (Sitagliptin).  \n  - HbA1c remains slightly above ADA-recommended targets.  \n\n---\n\n### **2. Longitudinal Laboratory Trajectory**  \n**Critical Trends**:  \n- **HbA1c**: Stable but trending upward (7.0 \u2192 7.1, +1.43% net change).  \n- **Fasting Glucose**: Increasing (118 \u2192 122 mg/dL, +3.39% net change).  \n- **Postprandial Glucose**: Rising (155 \u2192 160 mg/dL, +3.23% net change).  \n- **Creatinine**: Marked increase (1.4 \u2192 1.7 mg/dL, +21.43% net change).  \n- **eGFR**: Declining (52 \u2192 40 mL/min/1.73m\u00b2, -23.08% net change).  \n- **LDL**: Stable (95 \u2192 94 mg/dL).  \n- **Triglycerides**: Stable (160 \u2192 158 mg/dL).  \n\n**Clinical Implications**:  \n- Rising glucose metrics suggest inadequate glycemic control despite medication changes.  \n- Creatinine and eGFR trends indicate progressive kidney dysfunction (Stage 3 CKD, eGFR <60).  \n- LDL and triglycerides are within acceptable ranges per ICMR guidelines.  \n\n---\n\n### **3. Medication History & Regimen Evolution**  \n- **Glimepiride**:  \n  - Dose reduced from 2 mg/day to 1 mg/day on 2023-11-15.  \n  - Sulfonylureas are associated with hypoglycemia risk and weight gain, particularly in elderly patients with CKD.  \n- **Sitagliptin**:  \n  - Initiated on 2024-04-05 (DPP-4 inhibitor).  \n  - **Dose Adjustment Required**: Sitagliptin requires renal dose adjustment for eGFR <60 mL/min/1.73m\u00b2 (standard dose: 50 mg/day).  \n  - **Guideline Context**: ICMR 2023 and ADA 2024 emphasize monitoring renal function when initiating or adjusting DPP-4 inhibitors.  \n\n**Adherence Note**: Medication adherence data is unavailable, limiting assessment of regimen efficacy.  \n\n---\n\n### **4. Grounded Medical Context**  \n**Key Guidelines & Citations**:  \n1. **Glycemic Targets (ADA 2024)**:  \n   - HbA1c <7.0% is appropriate for most non-pregnant adults.  \n   - Patient\u2019s HbA1c (7.1%) exceeds this target, warranting intervention.  \n   - Stringent targets (<6.5%) are not recommended due to hypoglycemia risk in elderly patients with CKD.  \n\n2. **Renal Monitoring (ICMR 2023)**:  \n   - eGFR <60 mL/min/1.73m\u00b2 requires more frequent monitoring (every 3\u20136 months).  \n   - Creatinine increase (1.4 \u2192 1.7 mg/dL) suggests worsening kidney function.  \n\n3. **Medication Safety (ICMR 2023 & DailyMed)**:  \n   - **Sitagliptin**: Requires dose adjustment for eGFR <60 mL/min/1.73m\u00b2.  \n   - **Glimepiride**: Hypoglycemia risk is heightened in patients with CKD (Stage 3).  \n\n4. **Comprehensive Evaluation (ICMR 2023)**:  \n   - Annual urine albumin-to-creatinine ratio (UACR) is recommended for early detection of diabetic kidney disease.  \n   - Liver function tests (AST, ALT) are required annually, especially for patients with MASH.  \n\n---\n\n### **5. Clinical Points Warranting Clinician Review**  \n1. **Glycemic Control**:  \n   - HbA1c remains above target despite medication changes. Consider alternative therapies (e.g., SGLT2 inhibitors, GLP-1 receptor agonists) if hypoglycemia risk is manageable.  \n\n2. **Renal Function**:  \n   - eGFR decline and creatinine increase require urgent evaluation for CKD progression. Monitor UACR and adjust medications (e.g., avoid NSAIDs, review ACE/ARB use).  \n\n3. **Medication Safety**:  \n   - Sitagliptin dose may need adjustment for eGFR <60 mL/min/1.73m\u00b2.  \n   - Glimepiride discontinuation was appropriate for CKD Stage 3, but hypoglycemia risk remains if residual renal function declines.  \n\n4. **Comorbidities**:  \n   - Missing data on UACR, liver enzymes, and electrolytes (e.g., potassium) limit assessment of kidney and liver health.  \n\n---\n\n### **6. Missing Data & Longitudinal Limitations**  \n- **Medication Adherence**: Unavailable, preventing assessment of regimen efficacy.  \n- **Urine Albumin-to-Creatinine Ratio (UACR)**: Not documented, critical for CKD staging.  \n- **Liver Function Tests (AST, ALT)**: Missing, despite ICMR guidelines requiring annual monitoring.  \n- **Electrolytes**: No data on potassium or sodium, which are essential for patients on ACE/ARBs or SGLT2 inhibitors.  \n- **Plasma Glucose/Fructosamine**: Not provided, limiting alternative glycemic assessment in patients with altered red blood cell turnover.  \n\n---\n\n**Final Note**: This summary is for review by a qualified healthcare professional. No diagnoses, prescriptions, or dosage recommendations are provided.",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct baseline HbA1c: 7.0%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Correct baseline Fasting Glucose: 118.0 mg/dL",
+        "Correct latest eGFR: 40.0",
+        "Correct latest Creatinine: 1.7",
+        "Accurately identified recorded medication: Sitagliptin",
+        "Accurately identified recorded medication: Glimepiride",
+        "Correct trend identification for HBA1C (stable)",
+        "Correct trend identification for FASTING_GLUCOSE (increasing)",
+        "Correct trend identification for POSTPRANDIAL_GLUCOSE (increasing)",
+        "Correct trend identification for CREATININE (increasing)",
+        "Correct trend identification for LDL (stable)",
+        "Correct trend identification for TRIGLYCERIDES (stable)"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-103",
+      "config": "Ablation_Labs_Only",
+      "response_time_s": 74.38,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 3.5,
+      "relevance": 5.0,
+      "citations_count": 3,
+      "summary": "**Summary of Glycemic and Laboratory Trends for Patient T2D-103**  \n**Configuration: Ablation Study 1 (RAG + Longitudinal Labs Only, No Medication Trend Analysis)**  \n\n---\n\n### **Glycemic Trends**  \n- **HbA1c**: Stable at 7.0% (first) to 7.1% (latest), with a minimal increase (+0.1%). This suggests average glycemia has not significantly worsened over time, but the patient remains slightly above the ADA-recommended target of <7.0% (53 mmol/mol).  \n- **Fasting Glucose**: Gradual increase (+4 mg/dL) from 118.0 to 122.0 mg/dL.  \n- **Postprandial Glucose**: Slight rise (+5 mg/dL) from 155.0 to 160.0 mg/dL.  \n**Implication**: While HbA1c is stable, rising fasting and postprandial glucose levels may indicate suboptimal glycemic control, particularly in the context of potential dietary, lifestyle, or therapeutic factors. The ADA guidelines emphasize that HbA1c reflects 90\u2013120 days of glucose trends, so recent spikes may not be fully captured by this metric.  \n\n---\n\n### **Laboratory Trends**  \n1. **Renal Function**:  \n   - **Creatinine**: Increased from 1.4 to 1.7 mg/dL (+0.3), indicating declining kidney function.  \n   - **eGFR**: Decreased from 52.0 to 40.0 mL/min/1.73m\u00b2 (\u221212), placing the patient in the **eGFR <60 mL/min/1.73m\u00b2** category.  \n   **Implication**: Progressive kidney disease (Stage 3 CKD) is evident. The ICMR guidelines recommend **quarterly eGFR monitoring** for patients with eGFR <60 mL/min/1.73m\u00b2. Renal impairment may limit medication choices (e.g., sulfonylureas, SGLT2 inhibitors) and necessitate closer monitoring of electrolytes and fluid balance.  \n\n2. **Lipid Profile**:  \n   - **LDL**: Stable (95.0 \u2192 94.0 mg/dL).  \n   - **Triglycerides**: Stable (160.0 \u2192 158.0 mg/dL).  \n   **Implication**: Lipid parameters are within acceptable ranges, though further evaluation may be needed if cardiovascular risk factors are present.  \n\n---\n\n### **Key Clinical Considerations**  \n1. **Glycemic Control**:  \n   - The patient\u2019s HbA1c is near the ADA target, but rising fasting/postprandial glucose levels may require reevaluation of dietary/lifestyle interventions or therapeutic adjustments. The ICMR guidelines recommend **quarterly HbA1c monitoring** for patients not meeting glycemic goals.  \n   - **Caution**: Stringent HbA1c targets (<6.5%) are not advised for patients with advanced comorbidities (e.g., CKD), as per ADA guidelines.  \n\n2. **Renal Monitoring**:  \n   - The decline in eGFR and rise in creatinine necessitate **urgent evaluation for diabetic nephropathy**. The ICMR guidelines emphasize **annual urinary albumin-to-creatinine ratio (UACR)** testing to detect early kidney disease.  \n   - **Medication Safety**: Avoid sulfonylureas (e.g., glimepiride) due to hypoglycemia risk in CKD. DPP-4 inhibitors (e.g., linagliptin) are preferred for renal safety, though medication changes are excluded in this analysis.  \n\n3. **Comorbidities**:  \n   - The patient\u2019s renal decline may complicate management of other comorbidities (e.g., hypertension, MASH). The ICMR guidelines highlight the importance of **annual liver function tests (AST, ALT)** for T2DM patients.  \n\n---\n\n### **Recommendations for Review**  \n- **Renal Function**: Confirm UACR and assess for proteinuria. Consider referral to a nephrologist.  \n- **Glycemic Management**: Reassess dietary/lifestyle factors and consider non-pharmacologic interventions.  \n- **Monitoring**: Continue quarterly eGFR and HbA1c testing, with closer follow-up for renal parameters.  \n\n**Note**: This summary is based on longitudinal laboratory trends and clinical guidelines. Independent medical evaluation is required for treatment decisions.  \n\n---  \n**End of Summary**",
+      "verified_facts": [
+        "Correct latest HbA1c: 7.1%",
+        "Correct baseline HbA1c: 7.0%",
+        "Correct latest Fasting Glucose: 122.0 mg/dL",
+        "Correct baseline Fasting Glucose: 118.0 mg/dL",
+        "Correct latest eGFR: 40.0",
+        "Correct latest Creatinine: 1.7",
+        "Accurately identified recorded medication: Glimepiride",
+        "Correct trend identification for HBA1C (stable)",
+        "Correct trend identification for LDL (stable)",
+        "Correct trend identification for TRIGLYCERIDES (stable)"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    },
+    {
+      "patient_id": "T2D-103",
+      "config": "Ablation_Meds_Only",
+      "response_time_s": 67.79,
+      "factual_correctness_pct": 100.0,
+      "completeness_pct": 100.0,
+      "evidence_grounding_pct": 100.0,
+      "unsupported_claim_rate_pct": 3.5,
+      "relevance": 4.5,
+      "citations_count": 3,
+      "summary": "**Medication Trajectory Summary for Patient T2D-103**  \n**Age:** 72, **Gender:** Male  \n\n1. **Glimepiride Dose Adjustment (2023-11-15):**  \n   - **Change:** Reduced from 2 mg daily to 1 mg daily.  \n   - **Rationale:** Sulfonylureas (e.g., Glimepiride) carry a **substantial hypoglycemia risk**, particularly in elderly patients or those with renal impairment. The dose reduction likely aimed to mitigate this risk while maintaining glycemic control. However, **long-term efficacy may diminish** due to progressive beta-cell failure, as noted in ICMR guidelines.  \n\n2. **Regimen Update (2024-04-05):**  \n   - **Change:** Discontinued Glimepiride and initiated **Sitagliptin** (DPP-4 inhibitor).  \n   - **Rationale:**  \n     - **DPP-4 inhibitors** (e.g., Sitagliptin) are **well-tolerated**, **weight-neutral**, and have **negligible hypoglycemia risk** as monotherapy, aligning with safety concerns for elderly patients.  \n     - Sitagliptin\u2019s **modest HbA1c reduction** (0.5\u20130.8%) complements its favorable safety profile, making it a suitable alternative to sulfonylureas in this population.  \n     - **No renal dose adjustment** is required for Sitagliptin (unlike Glimepiride, which necessitates eGFR-based adjustments).  \n\n**Clinical Context:**  \n- The transition reflects a shift toward **safer, more sustainable glycemic management** for an elderly patient with potential comorbidities (e.g., renal function, hypoglycemia risk).  \n- **HbA1c targets** (<7.0%) are appropriate for this patient, per ADA guidelines, but **specific glycemic outcomes** are **unavailable** for review.  \n- **Laboratory monitoring** (e.g., eGFR, UACR, lipid panel) is recommended annually, per ICMR/ADA guidelines, but **data is not provided** in this configuration.  \n\n**Note:** This summary is intended for review by a qualified healthcare professional. No diagnostic, prescribing, or lab result recommendations are made.",
+      "verified_facts": [
+        "Accurately identified recorded medication: Sitagliptin",
+        "Accurately identified recorded medication: Glimepiride"
+      ],
+      "factual_errors": [],
+      "missing_facets": []
+    }
+  ]
+}
