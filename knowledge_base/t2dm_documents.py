@@ -791,12 +791,254 @@ T2DM_KNOWLEDGE_DOCUMENTS: List[Dict[str, Any]] = [
 "Lifestyle intervention with at least 60 minutes of daily physical activity is recommended."
 )
 },
-
+{
+        "id": "t2dm_ada_hf_59",
+        "topic": "Cardiovascular Prevention",
+        "title": "Heart Failure in T2DM: Screening, Glucose-Lowering Choices, and Agents to Avoid",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Cardiovascular Disease and Risk Management: Heart Failure",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 10",
+        "content": (
+            "Heart failure (HF) is a common and early cardiovascular manifestation of T2DM. Adults with diabetes should be screened for HF symptoms at each visit, "
+            "and natriuretic peptide (BNP or NT-proBNP) measurement can identify asymptomatic stage B HF in those at risk. "
+            "SGLT2 inhibitors are recommended in T2DM with HF with reduced or preserved ejection fraction to reduce HF hospitalization and cardiovascular death, "
+            "regardless of baseline HbA1c. In HFpEF with obesity, semaglutide or tirzepatide improve symptoms and physical function. "
+            "Thiazolidinediones (pioglitazone) should be avoided in symptomatic HF; saxagliptin and alogliptin carry a HF warning and should be used cautiously. "
+            "Standard HF therapy (ACE inhibitor, ARB, or ARNI; evidence-based beta-blocker; mineralocorticoid receptor antagonist) continues alongside diabetes therapy. "
+            "Metformin may be used in stable HF if eGFR is adequate."
+        )
+    },
+    {
+        "id": "t2dm_ada_cvot_60",
+        "topic": "Cardiovascular Prevention",
+        "title": "Cardiovascular and Kidney Outcome Trials Supporting GLP-1 RA and SGLT2 Inhibitor Use",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Cardiovascular Disease and Risk Management: Pharmacologic Interventions",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 9 and Section 10",
+        "content": (
+            "GLP-1 receptor agonists with demonstrated reduction in major adverse cardiovascular events (MACE) in T2DM with ASCVD or high risk include liraglutide (LEADER), "
+            "injectable semaglutide (SUSTAIN-6), and dulaglutide (REWIND); oral semaglutide (PIONEER 6) showed non-inferiority for MACE. "
+            "SGLT2 inhibitors with cardiovascular benefit include empagliflozin (EMPA-REG OUTCOME, reduced MACE and cardiovascular death) and canagliflozin (CANVAS Program), "
+            "while dapagliflozin (DECLARE-TIMI 58) mainly reduced HF hospitalization. "
+            "Kidney outcome trials supporting SGLT2 inhibitors in CKD include CREDENCE (canagliflozin), DAPA-CKD (dapagliflozin), and EMPA-KIDNEY (empagliflozin). "
+            "Finerenone reduced kidney and cardiovascular outcomes in T2DM CKD in FIDELIO-DKD and FIGARO-DKD. "
+            "DPP-4 inhibitors have been neutral for MACE, and sulfonylureas have not shown cardiovascular benefit."
+        )
+    },
+    {
+        "id": "t2dm_ada_statin_intensity_61",
+        "topic": "Lipid Profile Monitoring",
+        "title": "High- and Moderate-Intensity Statin Regimens and Age-Based Recommendations",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Cardiovascular Disease and Risk Management: Lipid Management",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 10, Table 10.3",
+        "content": (
+            "High-intensity statin therapy (lowers LDL-C by approximately >= 50%): atorvastatin 40-80 mg, rosuvastatin 20-40 mg. "
+            "Moderate-intensity statin therapy (lowers LDL-C by approximately 30-49%): atorvastatin 10-20 mg, rosuvastatin 5-10 mg, simvastatin 20-40 mg, "
+            "pravastatin 40-80 mg, lovastatin 40 mg, fluvastatin XL 80 mg, pitavastatin 1-4 mg. "
+            "Age recommendations: adults 20-39 with additional ASCVD risk factors may be considered for a statin; adults 40-75 without ASCVD should receive at least moderate-intensity statin; "
+            "adults 40-75 with additional ASCVD risk factors should receive high-intensity statin therapy; adults over 75 already on a statin should continue it, "
+            "and initiating a moderate-intensity statin is reasonable after a risk-benefit discussion. "
+            "Statin therapy is contraindicated in pregnancy. Lipid panel is repeated 4-12 weeks after initiation or dose change, then annually."
+        )
+    },
+    {
+        "id": "t2dm_ada_nonstatin_62",
+        "topic": "Lipid Profile Monitoring",
+        "title": "Non-Statin Lipid-Lowering Therapies: Ezetimibe, PCSK9 Inhibitors, Bempedoic Acid, Icosapent Ethyl",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Cardiovascular Disease and Risk Management: Lipid Management",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 10",
+        "content": (
+            "For people with diabetes and ASCVD whose LDL-C remains >= 55 mg/dL on maximally tolerated statin, adding ezetimibe or a PCSK9 monoclonal antibody (evolocumab, alirocumab) "
+            "is recommended. Ezetimibe provides an additional LDL-C reduction of roughly 15-20%; PCSK9 monoclonal antibodies lower LDL-C by approximately 50-60%. "
+            "Bempedoic acid is an option for statin-intolerant patients to reduce cardiovascular events; inclisiran (siRNA targeting PCSK9) lowers LDL-C and is dosed twice yearly after initial doses. "
+            "In statin-intolerant patients, a lower or alternate-day statin dose combined with non-statin therapy can be used. "
+            "For adults with fasting triglycerides 135-499 mg/dL on statin therapy with established ASCVD or other risk factors, icosapent ethyl is recommended to reduce cardiovascular risk. "
+            "Fenofibrate is not recommended for cardiovascular risk reduction when added to a statin but can be used to lower triglycerides >= 500 mg/dL."
+        )
+    },
+    {
+        "id": "t2dm_ada_cad_screen_63",
+        "topic": "Cardiovascular Prevention",
+        "title": "Cardiovascular Risk Assessment and Screening for Coronary Disease in Asymptomatic Adults",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Cardiovascular Disease and Risk Management: Screening",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 10",
+        "content": (
+            "Cardiovascular risk factors (hypertension, dyslipidemia, smoking, family history of premature coronary disease, CKD, and albuminuria) should be assessed at least annually. "
+            "Routine screening for coronary artery disease in asymptomatic adults with diabetes is not recommended because it does not improve outcomes when risk factors are treated. "
+            "Investigation is warranted for typical or atypical cardiac symptoms, an abnormal resting ECG, signs or symptoms of associated vascular disease "
+            "(carotid bruits, transient ischemic attack, stroke, claudication, or peripheral arterial disease), or before starting a vigorous exercise program in sedentary patients with multiple risk factors. "
+            "An ankle-brachial index should be considered in those with symptoms of PAD or absent pedal pulses. "
+            "Lifestyle modification, blood pressure control, statin therapy, and use of cardioprotective glucose-lowering agents are the cornerstones of prevention."
+        )
+    },
+    {
+        "id": "t2dm_ada_post_acs_64",
+        "topic": "Cardiovascular Prevention",
+        "title": "Antiplatelet and Secondary Prevention After Acute Coronary Syndrome or Stroke in Diabetes",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Cardiovascular Disease and Risk Management: Cardiovascular Disease",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 10",
+        "content": (
+            "Dual antiplatelet therapy (aspirin plus a P2Y12 inhibitor such as clopidogrel, ticagrelor, or prasugrel) is reasonable for up to a year after an acute coronary syndrome, "
+            "with duration individualized to bleeding and ischemic risk. After myocardial infarction, beta-blockers are continued for 3 years in patients with preserved ejection fraction "
+            "and indefinitely in those with reduced ejection fraction or HF. ACE inhibitors or ARBs are recommended in those with prior MI, coronary disease, or albuminuria. "
+            "A GLP-1 RA or SGLT2 inhibitor with proven cardiovascular benefit should be used in all patients with established ASCVD, independent of HbA1c. "
+            "High-intensity statin therapy with an LDL-C goal < 55 mg/dL is advised, adding ezetimibe or a PCSK9 inhibitor if not achieved. "
+            "Smoking cessation and cardiac rehabilitation improve outcomes."
+        )
+    },
+    {
+        "id": "t2dm_ada_insulin_delivery_65",
+        "topic": "Diabetes Technology",
+        "title": "Insulin Delivery Devices: Pens, Syringes, Pumps, and Automated Insulin Delivery",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Diabetes Technology: Insulin Delivery",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 7",
+        "content": (
+            "Insulin pens are preferred over vials and syringes when feasible because they improve dosing accuracy, adherence, convenience, and satisfaction; "
+            "smart pens and pen caps record dose timing and can integrate with CGM data. Pen needle length of 4 mm (32G) is appropriate for most adults, "
+            "and injection sites (abdomen, thigh, buttock, upper arm) should be rotated, with needles used once to reduce lipohypertrophy. "
+            "Continuous subcutaneous insulin infusion (pump) therapy should be offered to adults and youth with T1D, and may be considered for adults with T2DM on multiple daily injections "
+            "who are not achieving goals. Automated insulin delivery systems (insulin pump connected with CGM and an algorithm) are recommended for people with T1D and may be considered for others. "
+            "Users of pumps require education for troubleshooting site failure, ketone testing, and backup injection plans."
+        )
+    },
+    {
+        "id": "t2dm_ada_cgm_use_66",
+        "topic": "Diabetes Technology",
+        "title": "CGM Initiation, Device Types, and Practical Considerations",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Diabetes Technology: Continuous Glucose Monitoring Devices",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 7",
+        "content": (
+            "Real-time CGM (rtCGM) and intermittently scanned CGM (isCGM) are recommended for adults with diabetes on multiple daily injections or insulin pumps, "
+            "and should be offered to adults with T2DM on basal insulin; CGM can also be considered in those on glucose-lowering agents other than insulin. "
+            "Personal CGM use should be as close to continuous as possible for benefit; the device should be selected based on the individual's needs, preferences, and skill. "
+            "Alerts for low glucose and rapid glucose changes help to reduce hypoglycemia. Professional (clinic-owned, blinded or unblinded) CGM can be used periodically for short-term assessment. "
+            "Some substances can interfere with sensor accuracy depending on the device (for example high-dose ascorbic acid or hydroxyurea for some sensors), "
+            "so the manufacturer's labeling should be checked. Fingerstick confirmation is advised when symptoms do not match sensor readings. "
+            "Skin reactions to adhesives can be managed with barrier products."
+        )
+    },
+    {
+        "id": "t2dm_ada_initial_eval_67",
+        "topic": "Follow-up and Monitoring Recommendations",
+        "title": "Components of the Initial Comprehensive Medical Evaluation in T2DM",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Comprehensive Medical Evaluation and Assessment of Comorbidities",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 4",
+        "content": (
+            "The initial evaluation includes a complete medical history (age and symptoms at diagnosis, prior HbA1c trends, hypoglycemia, family history, diet, physical activity, "
+            "tobacco and alcohol use, sleep, medication list and adherence, prior and current complications), and a physical examination (height, weight, BMI, blood pressure including orthostatic "
+            "measurement when indicated, fundoscopy, thyroid palpation, skin exam for acanthosis nigricans and insulin injection sites, and comprehensive foot examination). "
+            "Laboratory evaluation includes HbA1c, fasting lipid profile, liver enzymes, UACR, serum creatinine with eGFR, and TSH when clinically indicated; "
+            "B12 is checked with long-term metformin use, particularly with anemia or neuropathy. "
+            "Referrals considered at baseline: eye care professional, dietitian or DSMES program, dental professional, and behavioral health professional when indicated."
+        )
+    },
+    {
+        "id": "t2dm_ada_osa_68",
+        "topic": "Comorbidity Screening",
+        "title": "Obstructive Sleep Apnea and Sleep Health in T2DM",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Comprehensive Medical Evaluation and Assessment of Comorbidities: Sleep Health",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 4 and Section 5",
+        "content": (
+            "Obstructive sleep apnea (OSA) is highly prevalent in T2DM, especially with obesity, and is associated with worse glycemic control, hypertension, and cardiovascular risk. "
+            "Screening questions or tools (such as STOP-BANG) should be used for symptoms including snoring, witnessed apneas, daytime sleepiness, nocturia, and resistant hypertension; "
+            "confirmed diagnosis uses polysomnography or home sleep apnea testing. Treatment with continuous positive airway pressure improves sleep quality and symptoms, "
+            "and weight loss reduces OSA severity. Tirzepatide is approved for moderate-to-severe OSA in adults with obesity. "
+            "Poor sleep (short duration under 6 hours, poor quality) and shift work are associated with increased insulin resistance; adults should aim for 7-9 hours of sleep. "
+            "Restless legs and insomnia should also be assessed."
+        )
+    },
+    {
+        "id": "t2dm_ada_bone_oral_69",
+        "topic": "Comorbidity Screening",
+        "title": "Bone Health, Periodontal Disease, and Cancer Screening in T2DM",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Comprehensive Medical Evaluation and Assessment of Comorbidities",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 4",
+        "content": (
+            "Adults with T2DM have higher fracture risk despite often normal or higher bone mineral density; fracture risk assessment (FRAX, with adjustment for diabetes) "
+            "and DXA should be considered for older adults and those with additional risk factors. Medications to review for bone effects include thiazolidinediones (increased fracture risk), "
+            "loop diuretics, long-term corticosteroids, and proton pump inhibitors. Periodontal disease is more common and more severe in diabetes and bidirectionally linked to glycemia; "
+            "an annual comprehensive dental examination and good oral hygiene are advised. "
+            "Diabetes and obesity are associated with increased risk of several cancers (liver, pancreas, endometrium, colon, breast, bladder), so age-appropriate cancer screening "
+            "(breast, cervical, colorectal) should be performed as for the general population, and modifiable risks such as obesity, smoking, and alcohol should be addressed."
+        )
+    },
+    {
+        "id": "t2dm_ada_sexual_cog_70",
+        "topic": "Comorbidity Screening",
+        "title": "Sexual Dysfunction, Low Testosterone, and Cognitive Impairment Screening in T2DM",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Comprehensive Medical Evaluation and Assessment of Comorbidities",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 4 and Section 13",
+        "content": (
+            "Erectile dysfunction is common in diabetic men and is an early marker of vascular and autonomic disease; evaluation includes history, medication review "
+            "(beta-blockers, thiazides, antidepressants), glycemic control, vascular risk, and testosterone in men with symptoms. "
+            "Phosphodiesterase-5 inhibitors are first-line pharmacotherapy but are contraindicated with nitrates and require caution with alpha-blockers and in unstable cardiovascular disease. "
+            "Men with diabetes and symptoms or signs of hypogonadism should have a morning total testosterone measured; treatment is individualized after evaluating cardiovascular risk. "
+            "Women should be asked about sexual dysfunction, genitourinary symptoms, and menopausal issues. "
+            "Cognitive impairment screening (for example MoCA or Mini-Cog) is recommended annually in adults 65 or older, and sooner when concerns arise, "
+            "because hypoglycemia and hyperglycemia are linked to cognitive decline and cognitive impairment hampers self-management."
+        )
+    },
+    {
+        "id": "t2dm_ada_smoking_alcohol_71",
+        "topic": "Lifestyle Guidance",
+        "title": "Tobacco Cessation and Alcohol Use in People with T2DM",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Facilitating Positive Health Behaviors and Well-being",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 5",
+        "content": (
+            "All adults with diabetes should be advised not to use cigarettes, other tobacco products, or e-cigarettes, because smoking is associated with premature death, "
+            "cardiovascular disease, microvascular complications, and worse glycemic control. Counseling and pharmacotherapy (nicotine replacement, varenicline, bupropion) "
+            "should be offered and combined for best results, and tobacco use screened at every visit. "
+            "Alcohol intake should be limited to up to one drink per day for women and up to two drinks per day for men (one drink is about 14 g of alcohol). "
+            "Alcohol can cause delayed hypoglycemia, particularly with insulin or sulfonylureas, so it should be consumed with food and not on an empty stomach; "
+            "heavy intake raises triglycerides, blood pressure, and risk of pancreatitis, and increases lactic acidosis risk with metformin."
+        )
+    },
+    {
+        "id": "t2dm_ada_activity_detail_72",
+        "topic": "Lifestyle Guidance",
+        "title": "Physical Activity Prescription Details, Sedentary Time, and Exercise Safety",
+        "source": "American Diabetes Association (ADA) Standards of Care",
+        "version": "2024",
+        "section": "Facilitating Positive Health Behaviors and Well-being: Physical Activity",
+        "citation": "ADA Standards of Care in Diabetes-2024, Section 5",
+        "content": (
+            "Adults with T2DM should engage in at least 150 minutes per week of moderate-to-vigorous aerobic activity spread over at least 3 days, with no more than 2 consecutive days of inactivity, "
+            "plus 2-3 sessions of resistance training per week; shorter, more vigorous or interval training (at least 75 minutes weekly) may suit younger and fitter individuals. "
+            "Prolonged sitting should be interrupted every 30 minutes with brief activity, and a short walk after meals lowers postprandial glucose. "
+            "Flexibility and balance training (yoga, tai chi) is recommended 2-3 times weekly for older adults. "
+            "Safety: people on insulin or secretagogues may need to check glucose before and after exercise, reduce doses, or add carbohydrate to avoid hypoglycemia; "
+            "those with severe proliferative retinopathy should avoid vigorous or straining exercise; and those with loss of protective sensation should use appropriate footwear "
+            "and avoid weight-bearing activity during active foot ulcers."
+        )
+    }
 ]
 
-
 def get_all_documents() -> List[Dict[str, Any]]:
-    """Return all curated Type 2 Diabetes knowledge documents."""
+    """Return all curated T2DM knowledge documents."""
     return T2DM_KNOWLEDGE_DOCUMENTS
 
 

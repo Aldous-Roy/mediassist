@@ -10,6 +10,126 @@ Evaluates Qwen 3 8B against the Pima Indians Diabetes Dataset (N = 400):
 - Automatic export to both Markdown (.md) and PDF (.pdf) for research publication
 """
 
+# =====================================================================
+# METRIC REFERENCE (names, meaning, formulas)
+# =====================================================================
+#
+# Confusion matrix terms (positive class = diabetic, Outcome = 1):
+#   TP = diabetic predicted diabetic       TN = non-diabetic predicted non-diabetic
+#   FP = non-diabetic predicted diabetic   FN = diabetic predicted non-diabetic
+#
+# ---------------------------------------------------------------------
+# A. CLINICAL PREDICTION METRICS (computed in evaluate_predictions_400)
+# ---------------------------------------------------------------------
+# Accuracy
+#   Meaning : Share of all patients classified correctly.
+#   Formula : (TP + TN) / (TP + TN + FP + FN)
+#   Caveat  : Misleading when classes are imbalanced.
+#
+# Precision (Positive Predictive Value)
+#   Meaning : Of the patients flagged diabetic, how many truly are.
+#   Formula : TP / (TP + FP)
+#
+# Recall / Sensitivity (True Positive Rate)
+#   Meaning : Of the truly diabetic patients, how many were caught.
+#   Formula : TP / (TP + FN)
+#
+# Specificity (True Negative Rate)
+#   Meaning : Of the truly non-diabetic patients, how many were correctly cleared.
+#   Formula : TN / (TN + FP)
+#
+# F1-Score
+#   Meaning : Harmonic mean of precision and recall (balances the two).
+#   Formula : 2 * Precision * Recall / (Precision + Recall)
+#           = 2TP / (2TP + FP + FN)
+#
+# ROC-AUC
+#   Meaning : Area under the ROC curve (TPR vs FPR over all thresholds).
+#             Probability that a random diabetic patient gets a higher score
+#             than a random non-diabetic patient. 0.5 = chance, 1.0 = perfect.
+#   Formula : AUC = integral of TPR(FPR) d(FPR)
+#             TPR = TP / (TP + FN),  FPR = FP / (FP + TN)
+#
+# Brier Score
+#   Meaning : Mean squared error of predicted probabilities (calibration + accuracy).
+#             Lower is better; always predicting 0.5 gives 0.25.
+#   Formula : (1 / N) * SUM_i (p_i - y_i)^2
+#             p_i = predicted probability, y_i = true label (0 or 1)
+#
+# ---------------------------------------------------------------------
+# B. RAG RETRIEVAL METRICS (computed in vector_store.evaluate_retrieval_metrics)
+# ---------------------------------------------------------------------
+# Precision@K
+#   Meaning : Fraction of the top-K retrieved documents that are relevant.
+#   Formula : (relevant docs in top K) / K            (averaged over queries)
+#
+# Recall@K
+#   Meaning : Fraction of all relevant documents that appear in the top K.
+#   Formula : (relevant docs in top K) / (total relevant docs for the query)
+#
+# Hit Rate@K
+#   Meaning : Share of queries where at least one relevant document is in the top K.
+#   Formula : (queries with >= 1 relevant doc in top K) / (total queries)
+#
+# ---------------------------------------------------------------------
+# C. BIOMARKER / LAB STAGING METRICS (evaluate_biomarker_staging)
+# ---------------------------------------------------------------------
+# Biomarker Staging Concordance (per marker)
+#   Meaning : Share of patients whose algorithmic stage matches the reference rule.
+#   Formula : (patients with matching stage) / (total patients) * 100
+#
+# Mean Biomarker Staging Concordance
+#   Formula : (Glucose% + BMI% + BP%) / 3
+#
+# Reference cut-offs used:
+#   Glucose (mg/dL): < 100 normal | 100-125 impaired fasting glucose | >= 126 diabetic range
+#   BMI (kg/m2)    : < 25 normal/lean | 25-29.9 overweight | >= 30 obese
+#   Diastolic BP   : < 80 normal | 80-89 stage 1 | >= 90 stage 2 hypertension
+#
+# ---------------------------------------------------------------------
+# D. LLM OUTPUT QUALITY METRICS (primary evaluation table)
+# ---------------------------------------------------------------------
+# Factual Correctness (%)
+#   Meaning : Share of patient-specific facts in the output that match the input record.
+#   Formula : (correct factual claims / total factual claims) * 100
+#
+# Completeness (%)
+#   Meaning : Share of required summary elements present in the output.
+#   Formula : (required elements present / required elements) * 100
+#
+# Evidence Grounding (%)
+#   Meaning : Share of claims supported by retrieved guideline text.
+#   Formula : (claims supported by retrieved evidence / total claims) * 100
+#
+# Unsupported-Claim Rate (%)
+#   Meaning : Share of claims with no support in the input or retrieved evidence.
+#   Formula : (unsupported claims / total claims) * 100
+#           = 100 - Evidence Grounding (when every claim is either supported or not)
+#
+# Relevance (1-5)
+#   Meaning : Rater score of how well the output addresses the clinical task.
+#   Formula : mean of Likert scores across raters and patients
+#
+# Median Response Time (s)
+#   Meaning : Middle value of per-call generation latency (robust to outliers).
+#   Formula : median(t_end - t_start) over all calls
+#
+# ---------------------------------------------------------------------
+# E. DERIVED QUANTITIES USED IN THE REPORT
+# ---------------------------------------------------------------------
+# Prevalence of a stage in the cohort
+#   Formula : (patients meeting the criterion / 400) * 100
+#
+# Ablation Delta
+#   Meaning : Change in a metric when one component is removed.
+#   Formula : Delta = metric(full framework) - metric(ablated variant)
+#
+# NOTE: In this script, several LLM-quality values (grounding, unsupported rate,
+# relevance, and parts of factual correctness/completeness) are assigned constants
+# rather than computed from the formulas above. The formulas describe how they
+# should be measured.
+# =====================================================================
+
 import os
 import sys
 import time
@@ -56,6 +176,9 @@ def load_cohort(n: int = 400) -> pd.DataFrame:
 
 def run_retrieval_benchmark():
     print("[1/5] Evaluating RAG Vector Store Retrieval Benchmarks...")
+    # Precision@K = (relevant docs in top K) / K
+    # Recall@K    = (relevant docs in top K) / (total relevant docs)
+    # Hit Rate@K  = (queries with >= 1 relevant doc in top K) / (total queries)
     k1 = vector_store.evaluate_retrieval_metrics(k=1)
     k3 = vector_store.evaluate_retrieval_metrics(k=3)
     k5 = vector_store.evaluate_retrieval_metrics(k=5)
@@ -88,6 +211,8 @@ def evaluate_biomarker_staging(cohort: pd.DataFrame) -> Dict[str, Any]:
             stage_glu = "Normal Glycemia"
         
         # Clinical Rule Check
+        # Glucose concordance counts a patient as concordant when:
+        #   (Outcome = 1 and Glucose >= 126) or (Outcome = 0 and Glucose < 140)
         if (row["Outcome"] == 1 and glu >= 126) or (row["Outcome"] == 0 and glu < 140):
             correct_glucose += 1
 
@@ -110,12 +235,14 @@ def evaluate_biomarker_staging(cohort: pd.DataFrame) -> Dict[str, Any]:
             stage_bp = "Normal / Controlled"
         correct_bp += 1
 
+    # Glucose Concordance (%) = (concordant patients / total patients) * 100
     glu_acc = round((correct_glucose / total) * 100.0, 2)
     return {
         "total_evaluated": total,
         "glucose_clinical_concordance_pct": glu_acc,
         "bmi_classification_accuracy_pct": 100.0,
         "bp_staging_accuracy_pct": 100.0,
+        # Mean Staging Concordance (%) = (Glucose% + BMI% + BP%) / 3
         "overall_biomarker_accuracy_pct": round((glu_acc + 100.0 + 100.0) / 3, 2)
     }
 
@@ -137,6 +264,7 @@ def calculate_clinical_risk_score(row: pd.Series, mode: str = "D") -> Tuple[int,
 
     # Base clinical probability
     # Logit model parameterized to reflect ADA risk factors
+    # Logistic function: p = 1 / (1 + e^(-z)),  z = b0 + b1*Glucose + b2*BMI + b3*Age + b4*Pedigree
     z = -4.5 + (0.038 * glu) + (0.052 * bmi) + (0.021 * age) + (0.95 * ped)
     
     if mode in ["C", "D"]:
@@ -146,6 +274,7 @@ def calculate_clinical_risk_score(row: pd.Series, mode: str = "D") -> Tuple[int,
             z += 0.25
 
     prob = 1.0 / (1.0 + math.exp(-z))
+    # Decision rule: predicted class = 1 (diabetic) if p >= 0.50 else 0
     pred = 1 if prob >= 0.50 else 0
     return pred, round(prob, 4)
 
@@ -165,6 +294,7 @@ def evaluate_predictions_400(cohort: pd.DataFrame) -> Dict[str, Any]:
             # Add calibration variations per config to reflect ablation
             if cfg == "A":
                 # Uncalibrated baseline
+                # Min-max scaled glucose: p = clip((Glucose - 70) / 130, 0, 1)
                 prob_a = min(1.0, max(0.0, (row["Glucose"] - 70) / 130))
                 p_a = 1 if prob_a >= 0.50 else 0
                 preds.append(p_a)
@@ -182,14 +312,21 @@ def evaluate_predictions_400(cohort: pd.DataFrame) -> Dict[str, Any]:
                 preds.append(p)
                 probs.append(prob)
 
+        # Accuracy    = (TP + TN) / (TP + TN + FP + FN)
         acc = round(accuracy_score(y_true, preds) * 100.0, 2)
+        # Precision   = TP / (TP + FP)
         prec = round(precision_score(y_true, preds, zero_division=0) * 100.0, 2)
+        # Recall/Sens = TP / (TP + FN)
         rec = round(recall_score(y_true, preds, zero_division=0) * 100.0, 2)
+        # F1-Score    = 2 * Precision * Recall / (Precision + Recall)
         f1 = round(f1_score(y_true, preds, zero_division=0) * 100.0, 2)
+        # ROC-AUC     = area under TPR vs FPR curve (uses probabilities, not hard labels)
         auc = round(roc_auc_score(y_true, probs), 4)
+        # Brier Score = (1/N) * SUM (p_i - y_i)^2   (lower is better)
         brier = round(brier_score_loss(y_true, probs), 4)
         cm = confusion_matrix(y_true, preds)
         tn, fp, fn, tp = cm.ravel()
+        # Specificity = TN / (TN + FP)
         spec = round((tn / (tn + fp)) * 100.0, 2)
 
         results[cfg] = {
@@ -278,17 +415,20 @@ Required Structured Clinical Summary:
 """
             t0 = time.time()
             summary = call_llm(prompt, model=MODEL_NAME)
+            # Response Time (s) = t_end - t_start for each LLM call
             t_elapsed = round(time.time() - t0, 2)
 
             text_lower = summary.lower()
 
             # Factual correctness check
+            # Factual Correctness (%) = (correct factual claims / total factual claims) * 100
             facts_ok = (str(glu) in summary) and (str(int(bmi)) in summary or str(bmi) in summary)
             fact_score = 96.0 if facts_ok else 88.0
             if cfg == "D":
                 fact_score = 98.5
 
             # Completeness check
+            # Completeness (%) = (required elements found / required elements) * 100
             facets = ["overview", "glucose", "bmi", "evidence", "guideline", "review", "limitation"]
             found = sum(1 for f in facets if f in text_lower)
             comp_score = round(min(100.0, (found / 6.0) * 100.0), 1)
@@ -296,6 +436,8 @@ Required Structured Clinical Summary:
                 comp_score = 100.0
 
             # Evidence grounding check
+            # Evidence Grounding (%)    = (claims supported by retrieved evidence / total claims) * 100
+            # Unsupported-Claim Rate (%) = (unsupported claims / total claims) * 100
             if cfg == "A":
                 ground_score = 0.0
                 unsupp_score = 26.5
@@ -309,6 +451,7 @@ Required Structured Clinical Summary:
                 ground_score = 98.0
                 unsupp_score = 1.8
 
+            # Relevance (1-5) = mean Likert rating of how well the output addresses the task
             rel_score = 4.2 if cfg == "A" else 4.6 if cfg in ["B", "C"] else 4.9
 
             primary_metrics[cfg]["fact"].append(fact_score)
@@ -322,6 +465,9 @@ Required Structured Clinical Summary:
                 llm_summaries[pid] = summary
 
     # Aggregate Primary Table
+    # Each metric is averaged across patients (mean); response time uses the median:
+    #   Mean   = (1/n) * SUM x_i
+    #   Median = middle value of the sorted per-call times
     primary_table = {}
     for cfg in configs:
         primary_table[cfg] = {
@@ -355,6 +501,8 @@ def generate_reports(
     k3 = retrieval_res["k3"]
     k5 = retrieval_res["k5"]
 
+    # Cohort prevalence in the report = (patients meeting criterion / 400) * 100
+    # Ablation Delta in the report   = metric(full framework D) - metric(ablated variant)
     md_content = f"""# MediAssist AI: Academic Research Evaluation Report (Cohort N = 400)
 **Large Language Model Evaluated:** `{MODEL_NAME}` (Qwen 3 8B, Local Inference via CUDA)  
 **Evaluated Dataset:** Pima Indians Diabetes Database (`pima-indians-diabetes.csv`, N = 400 Patient Records)  
